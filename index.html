@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yoad M. Dvir — Cybersecurity Storyteller & AI Agent Security Strategist</title>
-  <meta name="description" content="Yoad M. Dvir — Cybersecurity storyteller, public speaker, and AI Agent Security strategist. 20+ years shaping how the world understands identity threats." />
+  <meta name="description" content="Yoad M. Dvir — Cybersecurity storyteller, public speaker, and AI Agent Security strategist. 23+ years shaping how the world understands identity threats." />
 
   <meta property="og:title" content="Yoad M. Dvir — Cybersecurity Storyteller" />
-  <meta property="og:description" content="Speaker. Strategist. Storyteller. 20+ years turning complex cybersecurity into narratives that move markets." />
+  <meta property="og:description" content="Speaker. Strategist. Storyteller. 23+ years turning complex cybersecurity into narratives that move markets." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="photo.jpg" />
 
@@ -305,25 +305,32 @@
     .work-thumb-placeholder {
       width: 100%; height: 180px;
       display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.6rem;
       border-bottom: 1px solid var(--border);
-      font-size: 3rem;
+      font-size: 2.5rem;
       transition: transform 0.6s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-thumb-placeholder::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.04) 0%, transparent 60%);
+    }
+
+    .thumb-label {
+      font-family: var(--font-mono); font-size: 0.55rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
     }
 
     .work-thumb-placeholder--blog {
-      background: linear-gradient(135deg, #1e3a5f 0%, #0f1b2d 100%);
+      background: linear-gradient(135deg, #1e3a5f 0%, #0d1926 100%);
     }
 
     .work-thumb-placeholder--report {
-      background: linear-gradient(135deg, #2d1f0f 0%, #1a1209 100%);
-    }
-
-    .work-thumb-placeholder--video {
-      background: linear-gradient(135deg, #2d0f0f 0%, #1a0909 100%);
-    }
-
-    .work-thumb-placeholder--talk {
-      background: linear-gradient(135deg, #1a0f2d 0%, #110920 100%);
+      background: linear-gradient(135deg, #3d2a0f 0%, #1a1209 100%);
     }
 
     .work-card:hover .work-thumb,
@@ -432,7 +439,7 @@
     }
 
     .j-card {
-      background: var(--bg); padding: 2rem 2.2rem; transition: background 0.3s;
+      background: var(--bg); padding: 2.5rem 2.8rem; transition: background 0.3s;
     }
 
     .j-card:hover { background: var(--bg-card); }
@@ -443,7 +450,7 @@
     }
 
     .j-role {
-      font-size: 1.05rem; font-weight: 600; margin-bottom: 0.15rem;
+      font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem;
       letter-spacing: -0.01em;
     }
 
@@ -454,7 +461,7 @@
 
     .j-note {
       font-family: var(--font-editorial); font-style: italic;
-      font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;
+      font-size: 0.9rem; color: var(--text-muted); line-height: 1.55;
     }
 
     /* ── EXPERTISE ── */
@@ -658,10 +665,10 @@
       <div class="hero-text">
         <p class="hero-eyebrow">Silverfort &bull; The Identity Underground</p>
         <h1 class="hero-headline">
-          I turn complex<br>cybersecurity into<br>stories that <em>move markets.</em>
+          I make cybersecurity<br><em>human</em> — through AI,<br>stories & instinct.
         </h1>
         <p class="hero-sub">
-          Speaker, strategist, and researcher at the intersection of AI agent security and identity protection. Two decades of making technical threats make sense to the people who need to act on them.
+          I identify trends before they become headlines and turn them into narratives that touch people. AI is my co-pilot. Storytelling is my craft. Cybersecurity is my home. 23+ years of helping the right people understand the right threats at the right time.
         </p>
         <div class="hero-meta">
           <div class="hero-meta-item">
@@ -686,7 +693,7 @@
   <div class="philosophy reveal">
     <div class="philosophy-inner">
       <p class="philosophy-quote">
-        I interweave <strong>philosophy, technology, and storytelling</strong> to make sense of where cybersecurity is going. I took the AI pill — and I'm deep in the rabbit hole. Not as a tourist, but as someone who believes <strong>having a trusted voice in a fast-moving market</strong> is the whole game.
+        I interweave <strong>philosophy, technology, storytelling, and go-to-market experience</strong> to make sense of where cybersecurity is going. I took the AI pill — and I'm deep in the rabbit hole. Not as a tourist, but as someone who believes <strong>having a trusted voice in a fast-moving market</strong> is the whole game.
       </p>
 
       <div class="philosophy-traits">
@@ -732,10 +739,11 @@
           <div class="work-thumb-wrapper">
             <div class="work-thumb-placeholder work-thumb-placeholder--blog">
               <span>&#128274;</span>
+              <span class="thumb-label">Silverfort Blog</span>
             </div>
           </div>
           <div class="work-body">
-            <div class="work-label">Blog &mdash; Silverfort</div>
+            <div class="work-label">Blog |Silverfort</div>
             <div class="work-title">Trick or Scheme: AI Agent Security</div>
             <div class="work-desc">What happens when AI agents inherit enterprise identities — and why current frameworks aren't ready.</div>
             <div class="work-cta">Read article <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
@@ -746,10 +754,11 @@
           <div class="work-thumb-wrapper">
             <div class="work-thumb-placeholder work-thumb-placeholder--report">
               <span>&#128202;</span>
+              <span class="thumb-label">Annual Report 2026</span>
             </div>
           </div>
           <div class="work-body">
-            <div class="work-label">Annual Report &mdash; Identity Underground</div>
+            <div class="work-label">Annual Report |Identity Underground</div>
             <div class="work-title">IDU Annual Pulse 2026</div>
             <div class="work-desc">The definitive practitioner report on identity threat trends and what defenders are actually seeing in the field.</div>
             <div class="work-cta">View report <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
@@ -758,10 +767,10 @@
 
         <a href="https://www.youtube.com/watch?v=89q23lXZNak&list=PLU7koYpzWJEPYYOuDb_jR1s9Y3TWy45Q6" target="_blank" rel="noopener" class="work-card reveal reveal-d3">
           <div class="work-thumb-wrapper">
-            <img src="https://img.youtube.com/vi/89q23lXZNak/hqdefault.jpg" alt="Speaking engagements playlist" class="yt-thumb" loading="lazy" />
+            <img src="https://img.youtube.com/vi/89q23lXZNak/mqdefault.jpg" alt="Speaking engagements playlist" class="yt-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/89q23lXZNak/default.jpg'" />
           </div>
           <div class="work-body">
-            <div class="work-label">Video Series &mdash; Talks &amp; Panels</div>
+            <div class="work-label">Video Series |Talks &amp; Panels</div>
             <div class="work-title">Speaking Engagements & Webinars</div>
             <div class="work-desc">Curated talks on cybersecurity strategy, identity protection, and the evolving threat landscape.</div>
             <div class="work-cta">Watch playlist <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
@@ -770,7 +779,7 @@
 
         <a href="https://youtu.be/DeJVu0lPU7g?si=lJjQ_Q78iN5gZREG" target="_blank" rel="noopener" class="work-card reveal reveal-d4">
           <div class="work-thumb-wrapper">
-            <img src="https://img.youtube.com/vi/DeJVu0lPU7g/hqdefault.jpg" alt="Featured talk" class="yt-thumb" loading="lazy" />
+            <img src="https://img.youtube.com/vi/DeJVu0lPU7g/mqdefault.jpg" alt="Featured talk" class="yt-thumb" loading="lazy" onerror="this.src='https://img.youtube.com/vi/DeJVu0lPU7g/default.jpg'" />
           </div>
           <div class="work-body">
             <div class="work-label">Featured Talk</div>
@@ -796,7 +805,7 @@
         </div>
         <div class="speaker-stats reveal">
           <div class="stat-card">
-            <div class="stat-number stat-number--blue">20+</div>
+            <div class="stat-number stat-number--blue">23+</div>
             <div class="stat-label">Years in Cyber & Tech</div>
           </div>
           <div class="stat-card">
@@ -804,7 +813,7 @@
             <div class="stat-label">Years at Microsoft</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number stat-number--blue">3</div>
+            <div class="stat-number stat-number--blue">4</div>
             <div class="stat-label">Continents Covered</div>
           </div>
           <div class="stat-card">
@@ -827,13 +836,13 @@
 
       <div class="journey-grid reveal">
         <div class="j-card">
-          <div class="j-year">2024 &mdash; Present</div>
+          <div class="j-year">2024 |Present</div>
           <div class="j-role">Senior Product Marketing Manager</div>
           <div class="j-company">Silverfort</div>
           <div class="j-note">Shaping the AI Agent Security narrative for the Unified Identity Protection platform.</div>
         </div>
         <div class="j-card">
-          <div class="j-year">2024 &mdash; Present</div>
+          <div class="j-year">2024 |Present</div>
           <div class="j-role">Head of Content</div>
           <div class="j-company">The Identity Underground</div>
           <div class="j-note">Building the editorial voice of a private community for practitioners and executives in identity security.</div>
@@ -845,13 +854,13 @@
           <div class="j-note">External Attack Surface Management — positioning and go-to-market.</div>
         </div>
         <div class="j-card">
-          <div class="j-year">2015 &mdash; 2023</div>
+          <div class="j-year">2015 |2023</div>
           <div class="j-role">Security Sales &amp; Marketing Leadership</div>
           <div class="j-company">Microsoft (~10 years)</div>
           <div class="j-note">Global Black Belt, CEE Security Specialist, Product Marketing — the full arc from evangelist to strategist.</div>
         </div>
         <div class="j-card">
-          <div class="j-year">2013 &mdash; 2016</div>
+          <div class="j-year">2013 |2016</div>
           <div class="j-role">Global Pre-Sales Manager</div>
           <div class="j-company">Secure Islands &rarr; Microsoft</div>
           <div class="j-note">Helped take an Israeli startup from scrappy to acquired — data-centric security before it was a category.</div>
@@ -863,13 +872,13 @@
           <div class="j-note">Built Israel-East Asia business bridges. Different domain, same instinct: connect people across divides.</div>
         </div>
         <div class="j-card">
-          <div class="j-year">2011 &mdash; 2012</div>
+          <div class="j-year">2011 |2012</div>
           <div class="j-role">Sales Engineer, APAC</div>
           <div class="j-company">CyberArk</div>
           <div class="j-note">Technical sales and POCs across Asia Pacific — where I learned to demo under pressure.</div>
         </div>
         <div class="j-card">
-          <div class="j-year">2007 &mdash; 2010</div>
+          <div class="j-year">2007 |2010</div>
           <div class="j-role">Team Leader, Gaming &amp; Web</div>
           <div class="j-company">888 Holdings</div>
           <div class="j-note">Where it all started — platforms, infrastructure, and leading a team before I turned 30.</div>
@@ -932,7 +941,7 @@
         <div class="edu-item">
           <div class="edu-where">Tel Aviv University</div>
           <div class="edu-what">B.A., East Asia Studies & Business</div>
-          <div class="edu-when">2007 &mdash; 2010</div>
+          <div class="edu-when">2007 |2010</div>
         </div>
         <div class="edu-item">
           <div class="edu-where">IDF Officers Course</div>
