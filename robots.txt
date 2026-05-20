@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yoad-dvir.github.io/yoad-portfolio/sitemap.xml
