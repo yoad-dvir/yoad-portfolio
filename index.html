@@ -9,6 +9,7 @@
   <meta property="og:title" content="Yoad M. Dvir — Cybersecurity Storyteller" />
   <meta property="og:description" content="Speaker. Strategist. Storyteller. 20+ years turning complex cybersecurity into narratives that move markets." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="photo.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,7 +26,6 @@
       --accent: #3b82f6;
       --accent-bright: #60a5fa;
       --accent-glow: rgba(59, 130, 246, 0.12);
-      --accent-glow-strong: rgba(59, 130, 246, 0.25);
       --warm: #f59e0b;
       --warm-dim: rgba(245, 158, 11, 0.15);
       --text: #ededef;
@@ -53,30 +53,23 @@
 
     /* ── AMBIENT ── */
     .ambient {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
     }
 
     .ambient-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.07;
+      position: absolute; border-radius: 50%;
+      filter: blur(120px); opacity: 0.07;
     }
 
     .ambient-blob--1 {
-      width: 600px; height: 600px;
-      background: var(--accent);
+      width: 600px; height: 600px; background: var(--accent);
       top: -15%; right: -10%;
       animation: drift 20s ease-in-out infinite alternate;
     }
 
     .ambient-blob--2 {
-      width: 400px; height: 400px;
-      background: var(--warm);
+      width: 400px; height: 400px; background: var(--warm);
       bottom: 10%; left: -8%;
       animation: drift 16s ease-in-out infinite alternate-reverse;
     }
@@ -88,12 +81,9 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; width: 100%; z-index: 1000;
+      position: fixed; top: 0; width: 100%; z-index: 1000;
       padding: 1.2rem 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       backdrop-filter: blur(24px) saturate(1.2);
       background: rgba(9, 9, 11, 0.75);
       border-bottom: 1px solid var(--border);
@@ -103,155 +93,108 @@
     nav.scrolled { padding: 0.8rem 2.5rem; }
 
     .nav-brand {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      color: var(--text-secondary);
+      font-family: var(--font-mono); font-size: 0.78rem;
+      letter-spacing: 0.12em; color: var(--text-secondary);
     }
 
     .nav-brand strong { color: var(--text); font-weight: 500; }
 
     .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      list-style: none;
-      align-items: center;
+      display: flex; gap: 2.2rem; list-style: none; align-items: center;
     }
 
     .nav-links a {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family: var(--font-mono); font-size: 0.7rem;
+      color: var(--text-muted); text-decoration: none;
+      letter-spacing: 0.08em; text-transform: uppercase;
       transition: color 0.3s;
     }
 
     .nav-links a:hover { color: var(--text); }
 
     .nav-linkedin {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1rem; border: 1px solid var(--border);
+      border-radius: 4px; font-family: var(--font-mono);
+      font-size: 0.7rem; color: var(--text-secondary);
+      text-decoration: none; letter-spacing: 0.05em; transition: all 0.3s;
     }
 
-    .nav-linkedin:hover {
-      border-color: #0a66c2;
-      color: #60a5fa;
-    }
-
+    .nav-linkedin:hover { border-color: #0a66c2; color: #60a5fa; }
     .nav-linkedin svg { width: 14px; height: 14px; fill: currentColor; }
 
     .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
     }
 
     .hamburger span {
-      width: 22px; height: 1.5px;
-      background: var(--text-secondary);
-      transition: all 0.3s;
+      width: 22px; height: 1.5px; background: var(--text-secondary); transition: all 0.3s;
     }
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      padding: 8rem 2.5rem 4rem;
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; z-index: 1; padding: 8rem 2.5rem 4rem;
     }
 
     .hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
+      max-width: 1060px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center;
+    }
+
+    .hero-text { max-width: 640px; }
+
+    .hero-photo {
+      width: 220px; height: 220px; border-radius: 50%;
+      object-fit: cover; border: 3px solid var(--border);
+      box-shadow: 0 0 60px rgba(59, 130, 246, 0.08);
+      opacity: 0; animation: enter 0.7s ease forwards 0.3s;
     }
 
     .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--accent-bright);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: enter 0.7s ease forwards 0.2s;
+      font-family: var(--font-mono); font-size: 0.72rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--accent-bright); margin-bottom: 1.5rem;
+      opacity: 0; animation: enter 0.7s ease forwards 0.2s;
     }
 
     .hero-headline {
-      font-size: clamp(2.8rem, 6.5vw, 5rem);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.035em;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.035em;
       margin-bottom: 1.8rem;
-      opacity: 0;
-      animation: enter 0.7s ease forwards 0.4s;
+      opacity: 0; animation: enter 0.7s ease forwards 0.4s;
     }
 
     .hero-headline em {
-      font-family: var(--font-editorial);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent-bright);
+      font-family: var(--font-editorial); font-style: italic;
+      font-weight: 300; color: var(--accent-bright);
     }
 
     .hero-sub {
-      font-size: 1.15rem;
-      font-weight: 300;
-      color: var(--text-secondary);
-      max-width: 620px;
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: enter 0.7s ease forwards 0.6s;
+      font-size: 1.1rem; font-weight: 300; color: var(--text-secondary);
+      max-width: 580px; line-height: 1.75; margin-bottom: 2.5rem;
+      opacity: 0; animation: enter 0.7s ease forwards 0.6s;
     }
 
     .hero-meta {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: enter 0.7s ease forwards 0.8s;
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      opacity: 0; animation: enter 0.7s ease forwards 0.8s;
     }
 
-    .hero-meta-item {
-      display: flex;
-      flex-direction: column;
-    }
+    .hero-meta-item { display: flex; flex-direction: column; }
 
     .hero-meta-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.2rem;
+      font-family: var(--font-mono); font-size: 0.6rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 0.2rem;
     }
 
-    .hero-meta-value {
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
+    .hero-meta-value { font-size: 0.95rem; font-weight: 500; }
 
     .hero-meta-value a {
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      transition: border-color 0.3s;
+      color: var(--text); text-decoration: none;
+      border-bottom: 1px solid var(--border); transition: border-color 0.3s;
     }
 
     .hero-meta-value a:hover { border-color: var(--accent); }
@@ -261,148 +204,175 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── NARRATIVE STRIP ── */
-    .narrative {
-      position: relative;
-      z-index: 1;
+    /* ── PHILOSOPHY STRIP ── */
+    .philosophy {
+      position: relative; z-index: 1;
       padding: 5rem 2.5rem;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: var(--bg-elevated);
     }
 
-    .narrative-inner {
-      max-width: 700px;
-      margin: 0 auto;
-    }
+    .philosophy-inner { max-width: 800px; margin: 0 auto; }
 
-    .narrative-quote {
+    .philosophy-quote {
       font-family: var(--font-editorial);
-      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.65;
-      color: var(--text-secondary);
+      font-size: clamp(1.3rem, 2.3vw, 1.75rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.7; color: var(--text-secondary);
+      margin-bottom: 2.5rem;
     }
 
-    .narrative-quote strong {
-      color: var(--text);
-      font-weight: 400;
+    .philosophy-quote strong {
+      color: var(--text); font-weight: 400;
     }
 
-    .narrative-attribution {
-      margin-top: 1.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      color: var(--text-muted);
-      text-transform: uppercase;
+    .philosophy-traits {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
     }
+
+    .trait {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: border-color 0.3s;
+    }
+
+    .trait:hover { border-color: var(--border-hover); }
+
+    .trait-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .trait-text {
+      font-size: 0.85rem; color: var(--text-secondary);
+      font-weight: 300; line-height: 1.5;
+    }
+
+    .trait-text strong { color: var(--text); font-weight: 500; }
 
     /* ── SECTION COMMON ── */
     section { position: relative; z-index: 1; }
     .container { max-width: 1060px; margin: 0 auto; padding: 0 2.5rem; }
 
     .section-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent-bright);
-      margin-bottom: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--accent-bright); margin-bottom: 0.6rem;
     }
 
     .section-heading {
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 1rem;
+      font-weight: 700; letter-spacing: -0.025em; margin-bottom: 1rem;
     }
 
     .section-intro {
-      color: var(--text-secondary);
-      font-weight: 300;
-      font-size: 1.05rem;
-      max-width: 550px;
-      line-height: 1.7;
+      color: var(--text-secondary); font-weight: 300;
+      font-size: 1.05rem; max-width: 550px; line-height: 1.7;
     }
 
     .section-top { margin-bottom: 3.5rem; }
 
-    /* ── FEATURED WORK ── */
+    /* ── FEATURED WORK WITH THUMBNAILS ── */
     .work { padding: 7rem 0; }
 
     .work-grid {
-      display: grid;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
 
     .work-card {
-      background: var(--bg);
-      padding: 2.5rem;
-      text-decoration: none;
-      color: var(--text);
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 2rem;
-      transition: background 0.3s;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      text-decoration: none; color: var(--text);
+      transition: all 0.4s; overflow: hidden;
+      display: flex; flex-direction: column;
     }
 
-    .work-card:hover { background: var(--bg-card); }
-
-    .work-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
+    .work-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
     }
 
-    .work-icon--blog { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.15); }
-    .work-icon--report { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.15); }
-    .work-icon--video { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.15); }
+    .work-thumb {
+      width: 100%; height: 180px;
+      object-fit: cover; display: block;
+      border-bottom: 1px solid var(--border);
+      transition: transform 0.6s ease;
+    }
 
-    .work-body { min-width: 0; }
+    .work-thumb-placeholder {
+      width: 100%; height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid var(--border);
+      font-size: 3rem;
+      transition: transform 0.6s ease;
+    }
+
+    .work-thumb-placeholder--blog {
+      background: linear-gradient(135deg, #1e3a5f 0%, #0f1b2d 100%);
+    }
+
+    .work-thumb-placeholder--report {
+      background: linear-gradient(135deg, #2d1f0f 0%, #1a1209 100%);
+    }
+
+    .work-thumb-placeholder--video {
+      background: linear-gradient(135deg, #2d0f0f 0%, #1a0909 100%);
+    }
+
+    .work-thumb-placeholder--talk {
+      background: linear-gradient(135deg, #1a0f2d 0%, #110920 100%);
+    }
+
+    .work-card:hover .work-thumb,
+    .work-card:hover .work-thumb-placeholder { transform: scale(1.03); }
+
+    .work-thumb-wrapper { overflow: hidden; }
+
+    .work-body { padding: 1.8rem; flex-grow: 1; display: flex; flex-direction: column; }
 
     .work-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
+      font-family: var(--font-mono); font-size: 0.6rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 0.5rem;
     }
 
     .work-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      letter-spacing: -0.01em;
+      font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem;
+      letter-spacing: -0.01em; line-height: 1.3;
     }
 
     .work-desc {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      font-weight: 300;
+      font-size: 0.85rem; color: var(--text-secondary);
+      font-weight: 300; line-height: 1.6; flex-grow: 1;
     }
 
-    .work-arrow {
-      color: var(--text-muted);
-      transition: all 0.3s;
-      flex-shrink: 0;
+    .work-cta {
+      margin-top: 1.2rem; display: flex; align-items: center; gap: 0.4rem;
+      font-family: var(--font-mono); font-size: 0.68rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted); transition: color 0.3s;
     }
 
-    .work-arrow svg { width: 20px; height: 20px; stroke: currentColor; }
+    .work-cta svg {
+      width: 14px; height: 14px; stroke: currentColor; transition: transform 0.3s;
+    }
 
-    .work-card:hover .work-arrow { color: var(--accent-bright); transform: translateX(4px); }
+    .work-card:hover .work-cta { color: var(--accent-bright); }
+    .work-card:hover .work-cta svg { transform: translateX(3px); }
 
-    /* ── SPEAKER / STORY SECTION ── */
+    /* Embedded YouTube thumbnail */
+    .yt-thumb {
+      width: 100%; height: 180px; object-fit: cover;
+      display: block; border-bottom: 1px solid var(--border);
+      transition: transform 0.6s ease;
+    }
+
+    .work-card:hover .yt-thumb { transform: scale(1.03); }
+
+    /* ── SPEAKER ── */
     .speaker {
       padding: 7rem 0;
       background: var(--bg-elevated);
@@ -411,162 +381,108 @@
     }
 
     .speaker-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
     }
 
     .speaker-text h3 {
       font-family: var(--font-editorial);
-      font-size: 1.6rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
+      font-size: 1.5rem; font-weight: 300; font-style: italic;
+      color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;
     }
 
-    .speaker-text h3 strong {
-      color: var(--text);
-      font-weight: 400;
-    }
+    .speaker-text h3 strong { color: var(--text); font-weight: 400; }
 
     .speaker-text p {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 1rem;
+      font-size: 0.95rem; color: var(--text-secondary);
+      font-weight: 300; line-height: 1.7; margin-bottom: 1rem;
     }
 
     .speaker-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
     }
 
     .stat-card {
-      padding: 1.8rem;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      transition: border-color 0.3s;
+      padding: 1.8rem; border: 1px solid var(--border);
+      background: var(--bg); transition: border-color 0.3s;
     }
 
     .stat-card:hover { border-color: var(--border-hover); }
 
     .stat-number {
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 0.3rem;
+      font-size: 2.2rem; font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.3rem;
     }
 
     .stat-number--blue { color: var(--accent-bright); }
     .stat-number--warm { color: var(--warm); }
 
     .stat-label {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-family: var(--font-mono); font-size: 0.65rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--text-muted);
     }
 
-    /* ── TIMELINE ── */
+    /* ── JOURNEY ── */
     .journey { padding: 7rem 0; }
 
     .journey-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
     }
 
     .j-card {
-      background: var(--bg);
-      padding: 2rem 2.2rem;
-      transition: background 0.3s;
+      background: var(--bg); padding: 2rem 2.2rem; transition: background 0.3s;
     }
 
     .j-card:hover { background: var(--bg-card); }
 
     .j-year {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      color: var(--accent-bright);
-      margin-bottom: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
+      letter-spacing: 0.15em; color: var(--accent-bright); margin-bottom: 0.5rem;
     }
 
     .j-role {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.15rem;
+      font-size: 1.05rem; font-weight: 600; margin-bottom: 0.15rem;
       letter-spacing: -0.01em;
     }
 
     .j-company {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      font-weight: 300;
-      margin-bottom: 0.5rem;
+      font-size: 0.85rem; color: var(--text-secondary);
+      font-weight: 300; margin-bottom: 0.5rem;
     }
 
     .j-note {
-      font-family: var(--font-editorial);
-      font-style: italic;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.5;
+      font-family: var(--font-editorial); font-style: italic;
+      font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;
     }
 
-    /* ── SKILLS ── */
+    /* ── EXPERTISE ── */
     .expertise { padding: 7rem 0; border-top: 1px solid var(--border); }
 
     .expertise-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 3rem;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
     }
 
     .exp-col-title {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent-bright);
-      margin-bottom: 1.2rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 0.65rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-bright); margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem; border-bottom: 1px solid var(--border);
     }
 
     .exp-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
+      list-style: none; display: flex; flex-direction: column; gap: 0.65rem;
     }
 
     .exp-list li {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      font-weight: 300;
-      padding-left: 1rem;
-      position: relative;
+      font-size: 0.9rem; color: var(--text-secondary);
+      font-weight: 300; padding-left: 1rem; position: relative;
     }
 
     .exp-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.55rem;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--text-muted);
+      content: ''; position: absolute; left: 0; top: 0.55rem;
+      width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted);
     }
 
     .exp-list li:first-child { color: var(--text); font-weight: 400; }
@@ -574,155 +490,96 @@
 
     /* ── EDUCATION ── */
     .foundation {
-      padding: 5rem 0;
-      border-top: 1px solid var(--border);
+      padding: 5rem 0; border-top: 1px solid var(--border);
     }
 
-    .edu-row {
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
+    .edu-row { display: flex; gap: 3rem; flex-wrap: wrap; }
 
-    .edu-item {
-      flex: 1;
-      min-width: 220px;
-    }
+    .edu-item { flex: 1; min-width: 220px; }
 
     .edu-where {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent-bright);
-      margin-bottom: 0.3rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent-bright); margin-bottom: 0.3rem;
     }
 
-    .edu-what {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 0.15rem;
-    }
+    .edu-what { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.15rem; }
 
     .edu-when {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-muted);
+      font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);
     }
 
-    /* ── CONTACT ── */
+    /* ── CONNECT ── */
     .connect {
-      padding: 7rem 0 3rem;
-      border-top: 1px solid var(--border);
+      padding: 7rem 0 3rem; border-top: 1px solid var(--border);
     }
 
-    .connect-inner {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
+    .connect-inner { max-width: 600px; margin: 0 auto; text-align: center; }
 
     .connect-heading {
       font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
+      font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem;
     }
 
     .connect-heading em {
-      font-family: var(--font-editorial);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent-bright);
+      font-family: var(--font-editorial); font-style: italic;
+      font-weight: 300; color: var(--accent-bright);
     }
 
     .connect-sub {
-      color: var(--text-secondary);
-      font-weight: 300;
-      font-size: 1.05rem;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
+      color: var(--text-secondary); font-weight: 300;
+      font-size: 1.05rem; margin-bottom: 2.5rem; line-height: 1.7;
     }
 
     .connect-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
     }
 
     .c-btn {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.06em;
-      padding: 0.75rem 1.8rem;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.78rem;
+      letter-spacing: 0.06em; padding: 0.75rem 1.8rem;
+      text-decoration: none; transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
     }
 
     .c-btn--primary {
-      background: var(--accent);
-      color: white;
-      border: 1px solid var(--accent);
+      background: var(--accent); color: white; border: 1px solid var(--accent);
     }
 
-    .c-btn--primary:hover {
-      background: var(--accent-bright);
-      border-color: var(--accent-bright);
-    }
+    .c-btn--primary:hover { background: var(--accent-bright); border-color: var(--accent-bright); }
 
     .c-btn--ghost {
-      background: transparent;
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
+      background: transparent; color: var(--text-secondary); border: 1px solid var(--border);
     }
 
-    .c-btn--ghost:hover {
-      border-color: var(--text-secondary);
-      color: var(--text);
-    }
+    .c-btn--ghost:hover { border-color: var(--text-secondary); color: var(--text); }
 
     .c-btn svg { width: 15px; height: 15px; fill: currentColor; }
 
     /* ── FOOTER ── */
     .footer {
-      padding: 2rem 2.5rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 2rem 2.5rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
     }
 
     .footer-copy {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
+      font-family: var(--font-mono); font-size: 0.6rem;
+      color: var(--text-muted); letter-spacing: 0.1em;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
+    .footer-links { display: flex; gap: 1.5rem; }
 
     .footer-links a {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      transition: color 0.3s;
+      font-family: var(--font-mono); font-size: 0.6rem;
+      color: var(--text-muted); text-decoration: none;
+      letter-spacing: 0.08em; transition: color 0.3s;
     }
 
     .footer-links a:hover { color: var(--text-secondary); }
 
     /* ── REVEAL ── */
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 0; transform: translateY(30px);
       transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -738,31 +595,33 @@
       .hamburger { display: flex; }
 
       .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%; left: 0; right: 0;
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
         background: rgba(9, 9, 11, 0.97);
         backdrop-filter: blur(20px);
-        padding: 1.5rem 2.5rem 2rem;
-        gap: 1.2rem;
+        padding: 1.5rem 2.5rem 2rem; gap: 1.2rem;
         border-bottom: 1px solid var(--border);
       }
 
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo { margin: 0 auto 2rem; width: 180px; height: 180px; }
+      .hero-text { order: 2; }
+      .hero-meta { justify-content: center; }
       .speaker-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .journey-grid { grid-template-columns: 1fr; }
       .expertise-columns { grid-template-columns: 1fr; gap: 2rem; }
-      .work-card { grid-template-columns: auto 1fr; gap: 1.2rem; }
-      .work-arrow { display: none; }
+      .work-grid { grid-template-columns: 1fr; }
       .hero { padding: 6rem 1.5rem 3rem; }
       .container { padding: 0 1.5rem; }
       .footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .philosophy-traits { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 480px) {
       .speaker-stats { grid-template-columns: 1fr; }
       .connect-actions { flex-direction: column; align-items: center; }
       .hero-meta { gap: 1.2rem; }
+      .philosophy-traits { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -796,40 +655,66 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">Silverfort &bull; The Identity Underground</p>
-      <h1 class="hero-headline">
-        I turn complex<br>cybersecurity into<br>stories that <em>move markets.</em>
-      </h1>
-      <p class="hero-sub">
-        Speaker, strategist, and researcher at the intersection of AI agent security and identity protection. Two decades of making technical threats make sense to the people who need to act on them.
-      </p>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Currently</span>
-          <span class="hero-meta-value">Sr. PMM, <a href="https://www.silverfort.com" target="_blank">Silverfort</a></span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Focus</span>
-          <span class="hero-meta-value">AI Agent Security</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Based in</span>
-          <span class="hero-meta-value">Tel Aviv, Israel</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Experience</span>
-          <span class="hero-meta-value">20+ years</span>
+      <div class="hero-text">
+        <p class="hero-eyebrow">Silverfort &bull; The Identity Underground</p>
+        <h1 class="hero-headline">
+          I turn complex<br>cybersecurity into<br>stories that <em>move markets.</em>
+        </h1>
+        <p class="hero-sub">
+          Speaker, strategist, and researcher at the intersection of AI agent security and identity protection. Two decades of making technical threats make sense to the people who need to act on them.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Currently</span>
+            <span class="hero-meta-value">Sr. PMM, <a href="https://www.silverfort.com" target="_blank">Silverfort</a></span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Focus</span>
+            <span class="hero-meta-value">AI Agent Security</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Based in</span>
+            <span class="hero-meta-value">Tel Aviv</span>
+          </div>
         </div>
       </div>
+      <img src="photo.jpg" alt="Yoad M. Dvir" class="hero-photo" />
     </div>
   </section>
 
-  <!-- NARRATIVE -->
-  <div class="narrative reveal">
-    <div class="narrative-inner">
-      <p class="narrative-quote">
-        The best security strategy is the one people actually understand. I've spent my career <strong>bridging the gap between what's technically true and what decision-makers need to hear</strong> — from boardrooms in Prague to stages across Asia Pacific.
+  <!-- PHILOSOPHY / WHO I AM -->
+  <div class="philosophy reveal">
+    <div class="philosophy-inner">
+      <p class="philosophy-quote">
+        I interweave <strong>philosophy, technology, and storytelling</strong> to make sense of where cybersecurity is going. I took the AI pill — and I'm deep in the rabbit hole. Not as a tourist, but as someone who believes <strong>having a trusted voice in a fast-moving market</strong> is the whole game.
       </p>
+
+      <div class="philosophy-traits">
+        <div class="trait">
+          <span class="trait-icon">&#129309;</span>
+          <span class="trait-text"><strong>People person.</strong> I get inspired and energized by the people I work with.</span>
+        </div>
+        <div class="trait">
+          <span class="trait-icon">&#128300;</span>
+          <span class="trait-text"><strong>Curious by nature.</strong> I love tech — understanding how things really work under the hood.</span>
+        </div>
+        <div class="trait">
+          <span class="trait-icon">&#127793;</span>
+          <span class="trait-text"><strong>Teacher at heart.</strong> Nothing beats watching people I mentor grow and find their path.</span>
+        </div>
+        <div class="trait">
+          <span class="trait-icon">&#9889;</span>
+          <span class="trait-text"><strong>Energy bringer.</strong> I bring energy to every room, every call, every whiteboard session.</span>
+        </div>
+        <div class="trait">
+          <span class="trait-icon">&#128640;</span>
+          <span class="trait-text"><strong>Futurist thinker.</strong> Motivated by ideating about new concepts and what's coming next.</span>
+        </div>
+        <div class="trait">
+          <span class="trait-icon">&#129302;</span>
+          <span class="trait-text"><strong>AI companion.</strong> AI isn't a tool I use — it's my best companion. It makes me sharper and more curious.</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -839,54 +724,66 @@
       <div class="section-top reveal">
         <p class="section-eyebrow">Featured Work</p>
         <h2 class="section-heading">Research & Thought Leadership</h2>
-        <p class="section-intro">Select publications, reports, and talks that shaped the conversation around identity security and AI agent threats.</p>
+        <p class="section-intro">Giving researchers a voice — not for the sake of content, but for thought leadership that helps people make better decisions.</p>
       </div>
 
       <div class="work-grid">
         <a href="https://www.silverfort.com/blog/trick-or-scheme-a-conversation-with-ido-halevi-on-ai-agent-security/" target="_blank" rel="noopener" class="work-card reveal reveal-d1">
-          <div class="work-icon work-icon--blog">&#9997;</div>
+          <div class="work-thumb-wrapper">
+            <div class="work-thumb-placeholder work-thumb-placeholder--blog">
+              <span>&#128274;</span>
+            </div>
+          </div>
           <div class="work-body">
             <div class="work-label">Blog &mdash; Silverfort</div>
-            <div class="work-title">Trick or Scheme: A Conversation on AI Agent Security</div>
-            <div class="work-desc">Exploring what happens when AI agents inherit enterprise identities — and why current frameworks aren't ready.</div>
+            <div class="work-title">Trick or Scheme: AI Agent Security</div>
+            <div class="work-desc">What happens when AI agents inherit enterprise identities — and why current frameworks aren't ready.</div>
+            <div class="work-cta">Read article <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
-          <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </a>
 
         <a href="https://the-identity-underground.webflow.io/annual-pulse-2026" target="_blank" rel="noopener" class="work-card reveal reveal-d2">
-          <div class="work-icon work-icon--report">&#128202;</div>
+          <div class="work-thumb-wrapper">
+            <div class="work-thumb-placeholder work-thumb-placeholder--report">
+              <span>&#128202;</span>
+            </div>
+          </div>
           <div class="work-body">
             <div class="work-label">Annual Report &mdash; Identity Underground</div>
-            <div class="work-title">The Identity Underground Annual Pulse 2026</div>
-            <div class="work-desc">The definitive practitioner report on identity threat trends, attack patterns, and what defenders are actually seeing in the field.</div>
+            <div class="work-title">IDU Annual Pulse 2026</div>
+            <div class="work-desc">The definitive practitioner report on identity threat trends and what defenders are actually seeing in the field.</div>
+            <div class="work-cta">View report <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
-          <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=89q23lXZNak&list=PLU7koYpzWJEPYYOuDb_jR1s9Y3TWy45Q6" target="_blank" rel="noopener" class="work-card reveal reveal-d3">
-          <div class="work-icon work-icon--video">&#9654;</div>
+          <div class="work-thumb-wrapper">
+            <img src="https://img.youtube.com/vi/89q23lXZNak/hqdefault.jpg" alt="Speaking engagements playlist" class="yt-thumb" loading="lazy" />
+          </div>
           <div class="work-body">
             <div class="work-label">Video Series &mdash; Talks &amp; Panels</div>
-            <div class="work-title">Speaking Engagements & Webinar Playlist</div>
+            <div class="work-title">Speaking Engagements & Webinars</div>
             <div class="work-desc">Curated talks on cybersecurity strategy, identity protection, and the evolving threat landscape.</div>
+            <div class="work-cta">Watch playlist <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
-          <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </a>
 
         <a href="https://youtu.be/DeJVu0lPU7g?si=lJjQ_Q78iN5gZREG" target="_blank" rel="noopener" class="work-card reveal reveal-d4">
-          <div class="work-icon work-icon--video">&#127908;</div>
+          <div class="work-thumb-wrapper">
+            <img src="https://img.youtube.com/vi/DeJVu0lPU7g/hqdefault.jpg" alt="Featured talk" class="yt-thumb" loading="lazy" />
+          </div>
           <div class="work-body">
             <div class="work-label">Featured Talk</div>
             <div class="work-title">Live: Identity Security Deep Dive</div>
             <div class="work-desc">A live-audience deep dive into identity threats, practical defense strategies, and what's coming next.</div>
+            <div class="work-cta">Watch now <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
           </div>
-          <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- SPEAKER SECTION -->
+  <!-- SPEAKER -->
   <section class="speaker">
     <div class="container">
       <div class="speaker-grid">
@@ -895,7 +792,7 @@
           <h3>
             From <strong>Microsoft's global stage</strong> to <strong>cybersecurity conferences across three continents</strong> — I make identity security tangible, urgent, and impossible to ignore.
           </h3>
-          <p>Whether it's a 500-person keynote or a 10-person executive briefing, I bring research-backed insight with a storytelling edge that sticks. My work spans product launches, analyst briefings, competitive positioning, and community building for security practitioners.</p>
+          <p>Whether it's a 500-person keynote or a 10-person executive briefing, I bring research-backed insight with a storytelling edge that sticks. Being a real advisor to your prospects, customers, and partners — that's the whole game in a market moving this fast.</p>
         </div>
         <div class="speaker-stats reveal">
           <div class="stat-card">
@@ -939,7 +836,7 @@
           <div class="j-year">2024 &mdash; Present</div>
           <div class="j-role">Head of Content</div>
           <div class="j-company">The Identity Underground</div>
-          <div class="j-note">Building the editorial voice of the identity security practitioner community.</div>
+          <div class="j-note">Building the editorial voice of a private community for practitioners and executives in identity security.</div>
         </div>
         <div class="j-card">
           <div class="j-year">2024</div>
@@ -1058,7 +955,7 @@
         <p class="section-eyebrow reveal">Get in Touch</p>
         <h2 class="connect-heading reveal">Let's start a <em>conversation.</em></h2>
         <p class="connect-sub reveal">
-          Looking for a speaker, collaborator, or just someone who gets identity security? I'm always up for a good conversation.
+          Looking for a speaker, collaborator, or someone who gets identity security and AI? I'm always up for a good conversation.
         </p>
         <div class="connect-actions reveal">
           <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank" rel="noopener" class="c-btn c-btn--primary">
