@@ -334,7 +334,7 @@
 
     .hero-tagline {
       font-size: clamp(1.2rem, 2.2vw, 1.55rem);
-      font-weight: 400; color: var(--text-secondary);
+      font-weight: 400; color: var(--text);
       line-height: 1.45; margin-bottom: 1.5rem;
       opacity: 0; animation: fadeIn 0.6s ease forwards 0.35s;
     }
@@ -345,7 +345,7 @@
     }
 
     .hero-desc {
-      font-size: 0.95rem; font-weight: 300; color: var(--text-muted);
+      font-size: 1rem; font-weight: 400; color: var(--text-secondary);
       line-height: 1.7; margin-bottom: 2rem; max-width: 520px;
       opacity: 0; animation: fadeIn 0.6s ease forwards 0.4s;
     }
@@ -374,52 +374,57 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── LOGOS ── */
+    /* ── LOGOS MARQUEE ── */
     .logos {
-      padding: 3rem 0;
+      padding: 2.5rem 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: var(--bg-elevated);
+      overflow: hidden;
     }
 
     .logos-label {
       text-align: center;
       font-family: var(--font-mono); font-size: 0.6rem;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--text-muted); margin-bottom: 1.5rem;
+      color: var(--text-secondary); margin-bottom: 1.5rem;
     }
 
-    .logos-row {
-      display: flex; justify-content: center; align-items: center;
-      gap: 3rem; flex-wrap: wrap;
+    .logos-track {
+      display: flex; width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+
+    .logos-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .logo-item {
-      display: flex; align-items: center; gap: 0.5rem;
+      display: flex; align-items: center; gap: 0.6rem;
       font-family: var(--font-body); font-size: 1.05rem;
-      font-weight: 700; color: var(--text-muted);
+      font-weight: 700; color: var(--text-secondary);
       letter-spacing: 0.01em;
-      opacity: 0.45; transition: all 0.3s;
-      filter: grayscale(100%);
+      padding: 0.6rem 2rem;
+      white-space: nowrap;
+      transition: all 0.3s;
     }
 
-    .logo-item:hover { opacity: 1; filter: grayscale(0%); }
-
-    .logo-item img {
-      height: 28px; width: auto; object-fit: contain;
-      filter: brightness(0) invert(0.7);
-      transition: filter 0.3s;
-    }
-
-    .logo-item:hover img {
-      filter: brightness(1) invert(0);
-    }
+    .logo-item:hover { color: var(--text); }
 
     .logo-icon {
-      width: 28px; height: 28px; border-radius: 6px;
+      width: 32px; height: 32px; border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 0.75rem; color: #fff;
+      font-weight: 800; font-size: 0.8rem; color: #fff;
       flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .logo-sep {
+      color: var(--border); font-size: 1.2rem; padding: 0 0.5rem;
+      opacity: 0.4;
     }
 
     /* ── NOW EXPLORING (Trends) ── */
@@ -840,16 +845,15 @@
       .about-grid { grid-template-columns: 1fr; }
       .trends-grid { grid-template-columns: 1fr; }
       .traits-grid { grid-template-columns: 1fr 1fr; }
-      .logos-row { gap: 1.5rem; }
-      .logo-item { font-size: 0.9rem; }
-      .logo-icon { width: 24px; height: 24px; font-size: 0.65rem; }
+      .logo-item { font-size: 0.9rem; padding: 0.5rem 1.5rem; }
+      .logo-icon { width: 26px; height: 26px; font-size: 0.7rem; }
       .footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
 
     @media (max-width: 480px) {
       .traits-grid { grid-template-columns: 1fr; }
-      .logos-row { gap: 1rem; }
-      .logo-item { font-size: 0.8rem; }
+      .logo-item { font-size: 0.8rem; padding: 0.4rem 1rem; }
+      .logos-track { animation-duration: 18s; }
       .connect-actions { flex-direction: column; align-items: center; }
       .logos-row { gap: 1.5rem; }
     }
@@ -922,36 +926,35 @@
     </div>
   </section>
 
-  <!-- LOGOS -->
+  <!-- LOGOS MARQUEE -->
   <div class="logos reveal">
-    <div class="wrap">
-      <div class="logos-label">Built credibility at</div>
-      <div class="logos-row">
-        <span class="logo-item">
-          <span class="logo-icon" style="background:linear-gradient(135deg,#f25022,#7fba00,#00a4ef,#ffb900);">M</span>
-          Microsoft
-        </span>
-        <span class="logo-item">
-          <span class="logo-icon" style="background:#6C2BD9;">S</span>
-          Silverfort
-        </span>
-        <span class="logo-item">
-          <span class="logo-icon" style="background:#1A6DFF;">C</span>
-          CyberArk
-        </span>
-        <span class="logo-item">
-          <span class="logo-icon" style="background:#00C48C;">I</span>
-          IONIX
-        </span>
-        <span class="logo-item">
-          <span class="logo-icon" style="background:#0078D4;">SI</span>
-          Secure Islands
-        </span>
-        <span class="logo-item">
-          <span class="logo-icon" style="background:#FF6B00;">8</span>
-          888 Holdings
-        </span>
-      </div>
+    <div class="logos-label">Built credibility at</div>
+    <div class="logos-track">
+      <span class="logo-item"><span class="logo-icon" style="background:linear-gradient(135deg,#f25022,#7fba00,#00a4ef,#ffb900);">M</span>Microsoft</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#6C2BD9;">S</span>Silverfort</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#2196F3;">C</span>CyberArk</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#00E676;">I</span>IONIX</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#0078D4;">SI</span>Secure Islands</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#FF6D00;">8</span>888 Holdings</span>
+      <span class="logo-sep">·</span>
+      <!-- duplicate for seamless loop -->
+      <span class="logo-item"><span class="logo-icon" style="background:linear-gradient(135deg,#f25022,#7fba00,#00a4ef,#ffb900);">M</span>Microsoft</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#6C2BD9;">S</span>Silverfort</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#2196F3;">C</span>CyberArk</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#00E676;">I</span>IONIX</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#0078D4;">SI</span>Secure Islands</span>
+      <span class="logo-sep">·</span>
+      <span class="logo-item"><span class="logo-icon" style="background:#FF6D00;">8</span>888 Holdings</span>
+      <span class="logo-sep">·</span>
     </div>
   </div>
 
