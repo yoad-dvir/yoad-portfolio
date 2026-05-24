@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Agent Security Futures | Yoad Dvir's Thought Leadership Blog</title>
+  <meta name="description" content="Original commentary on AI agent security, agentic identity, and the future of cybersecurity. By Yoad M. Dvir, Sr. Product Marketing Manager at Silverfort." />
+  <meta name="keywords" content="AI agent security blog, agentic AI security, non-human identity, prompt injection, shadow AI, identity security futures, Yoad Dvir, יועד דביר" />
+  <meta name="author" content="Yoad M. Dvir" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yoad-dvir.github.io/yoad-portfolio/blog.html" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <meta property="og:title" content="AI Agent Security Futures | Yoad Dvir" />
+  <meta property="og:description" content="Original commentary on AI agent security, agentic identity, and the future of cybersecurity." />
+  <meta property="og:type" content="blog" />
+  <meta property="og:url" content="https://yoad-dvir.github.io/yoad-portfolio/blog.html" />
+  <meta property="og:image" content="https://yoad-dvir.github.io/yoad-portfolio/photo.jpg" />
+  <meta property="og:site_name" content="Yoad M. Dvir" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="AI Agent Security Futures | Yoad Dvir" />
+  <meta name="twitter:description" content="Original commentary on AI agent security, agentic identity, and the future of cybersecurity." />
+  <meta name="twitter:image" content="https://yoad-dvir.github.io/yoad-portfolio/photo.jpg" />
+
+  <link rel="icon" href="photo.jpg" type="image/jpeg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "AI Agent Security Futures",
+    "description": "Original commentary on AI agent security, agentic identity, and the future of cybersecurity by Yoad M. Dvir.",
+    "url": "https://yoad-dvir.github.io/yoad-portfolio/blog.html",
+    "author": {
+      "@type": "Person",
+      "@id": "https://yoad-dvir.github.io/yoad-portfolio/#yoad-dvir",
+      "name": "Yoad M. Dvir",
+      "alternateName": ["Yoad Dvir", "יועד דביר"]
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "The Execution Layer Is Wide Open",
+        "datePublished": "2026-05-24",
+        "author": {"@type": "Person", "name": "Yoad M. Dvir"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Your AI Agents Are Borrowing Your Employees' Keys",
+        "datePublished": "2026-05-24",
+        "author": {"@type": "Person", "name": "Yoad M. Dvir"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Prompt Injection Is the New SQL Injection",
+        "datePublished": "2026-05-24",
+        "author": {"@type": "Person", "name": "Yoad M. Dvir"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "The 500-to-1 Problem Nobody Is Talking About",
+        "datePublished": "2026-05-24",
+        "author": {"@type": "Person", "name": "Yoad M. Dvir"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Why Philosophy Belongs in Your Security Strategy",
+        "datePublished": "2026-05-24",
+        "author": {"@type": "Person", "name": "Yoad M. Dvir"}
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Sora:wght@200;300;400;500;600;700;800&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #0f0f12;
+      --bg-card: #141418;
+      --bg-card-hover: #1a1a1f;
+      --accent: #3b82f6;
+      --accent-bright: #60a5fa;
+      --accent-soft: rgba(59, 130, 246, 0.08);
+      --warm: #f59e0b;
+      --warm-soft: rgba(245, 158, 11, 0.08);
+      --green: #22c55e;
+      --green-soft: rgba(34, 197, 94, 0.08);
+      --red: #ef4444;
+      --red-soft: rgba(239, 68, 68, 0.08);
+      --purple: #a855f7;
+      --purple-soft: rgba(168, 85, 247, 0.08);
+      --text: #ededef;
+      --text-secondary: #a0a0ab;
+      --text-muted: #52525b;
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(255, 255, 255, 0.12);
+      --font-body: 'Sora', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-editorial: 'Newsreader', serif;
+      --max-w: 780px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: white; }
+
+    .ambient {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
+    }
+
+    .ambient-blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(140px); opacity: 0.04;
+    }
+
+    .ambient-blob--1 { width: 600px; height: 600px; background: var(--accent); top: -10%; right: -10%; }
+    .ambient-blob--2 { width: 400px; height: 400px; background: var(--purple); bottom: 10%; left: -10%; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      padding: 0.9rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      backdrop-filter: blur(24px) saturate(1.2);
+      background: rgba(9, 9, 11, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 1.5rem; }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      object-fit: cover; border: 1.5px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: var(--font-body); font-size: 0.88rem;
+      font-weight: 600; color: var(--text); letter-spacing: -0.01em;
+    }
+
+    .nav-tag {
+      font-family: var(--font-mono); font-size: 0.55rem;
+      padding: 0.2rem 0.5rem; border-radius: 3px;
+      background: var(--red-soft); color: var(--red);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex; gap: 1.5rem; list-style: none; align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem; color: var(--text-muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-back {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      color: var(--accent-bright); text-decoration: none;
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text); }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+    section { position: relative; z-index: 1; }
+
+    /* ── BLOG HEADER ── */
+    .blog-header {
+      padding: 8rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .blog-header-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: var(--font-mono); font-size: 0.6rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--green); background: var(--green-soft);
+      padding: 0.3rem 0.7rem; border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .blog-header-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .blog-header h1 {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 400; line-height: 1.15;
+      letter-spacing: -0.02em; margin-bottom: 0.8rem;
+    }
+
+    .blog-header h1 em {
+      font-style: italic; color: var(--accent-bright);
+    }
+
+    .blog-header-desc {
+      font-size: 1rem; color: var(--text-secondary);
+      font-weight: 300; line-height: 1.7; max-width: 600px;
+    }
+
+    .blog-header-meta {
+      margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .blog-header-author {
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    .blog-header-author img {
+      width: 28px; height: 28px; border-radius: 50%; object-fit: cover;
+    }
+
+    .blog-header-author span {
+      font-size: 0.8rem; font-weight: 500;
+    }
+
+    .blog-header-date {
+      font-family: var(--font-mono); font-size: 0.65rem;
+      color: var(--text-muted); letter-spacing: 0.06em;
+    }
+
+    /* ── POSTS ── */
+    .post {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0; transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .post.visible { opacity: 1; transform: translateY(0); }
+
+    .post-number {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 0.8rem;
+    }
+
+    .post-tag {
+      font-family: var(--font-mono); font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.2rem 0.55rem; border-radius: 3px;
+      display: inline-block; margin-bottom: 1rem;
+    }
+
+    .post-tag--ai { color: var(--accent-bright); background: var(--accent-soft); }
+    .post-tag--identity { color: var(--warm); background: var(--warm-soft); }
+    .post-tag--philosophy { color: var(--purple); background: var(--purple-soft); }
+    .post-tag--threat { color: var(--red); background: var(--red-soft); }
+    .post-tag--governance { color: var(--green); background: var(--green-soft); }
+
+    .post h2 {
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      line-height: 1.25; margin-bottom: 1rem;
+    }
+
+    .post-lead {
+      font-family: var(--font-editorial);
+      font-size: 1.1rem; font-weight: 300; font-style: italic;
+      color: var(--text-secondary); line-height: 1.7;
+      margin-bottom: 1.5rem;
+      padding-left: 1.2rem;
+      border-left: 2px solid var(--accent);
+    }
+
+    .post p {
+      font-size: 0.95rem; color: var(--text-secondary);
+      font-weight: 300; line-height: 1.8; margin-bottom: 1.2rem;
+    }
+
+    .post p strong { color: var(--text); font-weight: 500; }
+
+    .post-callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.3rem 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .post-callout-label {
+      font-family: var(--font-mono); font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent-bright); margin-bottom: 0.5rem;
+    }
+
+    .post-callout p { font-size: 0.88rem; margin-bottom: 0; }
+
+    .post-sources {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .post-sources-label {
+      font-family: var(--font-mono); font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 0.5rem;
+    }
+
+    .post-sources a {
+      display: block; font-size: 0.78rem; color: var(--accent-bright);
+      text-decoration: none; margin-bottom: 0.3rem;
+      transition: color 0.2s;
+    }
+
+    .post-sources a:hover { color: var(--text); }
+
+    /* ── MY TAKE BADGE ── */
+    .my-take {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-family: var(--font-mono); font-size: 0.55rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 0.8rem;
+    }
+
+    /* ── CTA ── */
+    .blog-cta {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .blog-cta h2 {
+      font-family: var(--font-editorial);
+      font-size: 1.8rem; font-weight: 400; font-style: italic;
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-cta h2 em { color: var(--accent-bright); }
+
+    .blog-cta p {
+      font-size: 0.9rem; color: var(--text-secondary);
+      font-weight: 300; margin-bottom: 1.5rem;
+    }
+
+    .blog-cta-links {
+      display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      letter-spacing: 0.04em; padding: 0.65rem 1.3rem;
+      text-decoration: none; border-radius: 4px;
+      transition: all 0.2s; display: inline-flex;
+      align-items: center; gap: 0.4rem;
+    }
+
+    .cta-btn--primary { background: var(--accent); color: white; }
+    .cta-btn--primary:hover { background: var(--accent-bright); }
+    .cta-btn--ghost { color: var(--text-secondary); border: 1px solid var(--border); }
+    .cta-btn--ghost:hover { border-color: var(--text-secondary); color: var(--text); }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 2rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      color: var(--text-muted); letter-spacing: 0.08em;
+    }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+
+    .footer-links a {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      color: var(--text-muted); text-decoration: none;
+      letter-spacing: 0.06em; transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text-secondary); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .nav-tag { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .blog-cta-links { flex-direction: column; align-items: center; }
+      .footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .post { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient">
+    <div class="ambient-blob ambient-blob--1"></div>
+    <div class="ambient-blob ambient-blob--2"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-left">
+      <a href="index.html" class="nav-brand">
+        <img src="photo.jpg" alt="Yoad Dvir" class="nav-avatar" loading="eager" />
+        <span class="nav-name">Yoad Dvir</span>
+      </a>
+      <span class="nav-tag">Blog</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#exploring">Thinking</a></li>
+      <li><a href="index.html#content">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html" class="nav-back">&larr; Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- BLOG HEADER -->
+  <section class="blog-header" style="position:relative;z-index:1;">
+    <div class="wrap">
+      <div class="blog-header-badge"><span class="blog-header-badge-dot"></span> Updated May 2026</div>
+      <h1>AI Agent Security <em>Futures</em></h1>
+      <p class="blog-header-desc">Original commentary on the trends reshaping cybersecurity. Where AI agents meet identity, philosophy meets the command line, and the future meets the unprepared.</p>
+      <div class="blog-header-meta">
+        <div class="blog-header-author">
+          <img src="photo.jpg" alt="Yoad Dvir" />
+          <span>Yoad M. Dvir</span>
+        </div>
+        <span class="blog-header-date">May 24, 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST 1 -->
+  <section class="post" id="post-1">
+    <div class="wrap">
+      <div class="post-number">01</div>
+      <span class="post-tag post-tag--ai">AI Agents</span>
+      <h2>The Execution Layer Is Wide Open</h2>
+      <div class="post-lead">82% of executives say their policies cover AI agents. Security teams know the truth: the execution layer is completely exposed.</div>
+
+      <p>Here's a number that should keep CISOs up at night: <strong>48% of cybersecurity professionals now rank agentic AI as the top attack vector</strong> heading into the second half of 2026. Not ransomware. Not phishing. AI agents.</p>
+
+      <p>And yet there's a surreal disconnect. Executives are telling boards they've got agent security covered. Meanwhile, in the SOC, security teams are watching AI agents operate with elevated privileges across production systems with almost no guardrails at the execution layer.</p>
+
+      <p>The problem isn't awareness. It's architecture. We designed security frameworks for a world where humans make decisions and machines execute them. <strong>Agentic AI flipped that</strong>. Now machines reason, decide, and act. The entire trust model needs rethinking.</p>
+
+      <div class="post-callout">
+        <div class="post-callout-label">My take</div>
+        <p>The execution layer gap is this generation's "we forgot to patch the firewall." Except this time, the thing making decisions isn't a misconfigured rule. It's an autonomous system with your company's credentials. The organizations that win will be the ones who treat agent actions like privileged user sessions, not background processes.</p>
+      </div>
+
+      <p>What I find most fascinating is how <strong>Gartner is now calling identity and access management for AI agents a top-6 cybersecurity trend for 2026</strong>. That's not a prediction anymore. That's a fire alarm.</p>
+
+      <div class="post-sources">
+        <div class="post-sources-label">Sources & further reading</div>
+        <a href="https://www.kiteworks.com/cybersecurity-risk-management/agentic-ai-attack-surface-enterprise-security-2026/" target="_blank" rel="noopener">Kiteworks: Agentic AI Enterprise Security 2026 &rarr;</a>
+        <a href="https://cloudsecurityalliance.org/articles/the-state-of-ai-cybersecurity-2026-unveiling-insights-from-over-1-500-security-leaders" target="_blank" rel="noopener">CSA: State of AI Cybersecurity 2026 &rarr;</a>
+        <a href="https://zenity.io/resources/white-papers/2026-threat-landscape-report" target="_blank" rel="noopener">Gartner via Zenity: 2026 Threat Landscape &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST 2 -->
+  <section class="post" id="post-2">
+    <div class="wrap">
+      <div class="post-number">02</div>
+      <span class="post-tag post-tag--identity">Identity Crisis</span>
+      <h2>Your AI Agents Are Borrowing Your Employees' Keys</h2>
+      <div class="post-lead">Only 23% of organizations have a formal strategy for agent identity management. The rest? They're sharing human credentials with machines.</div>
+
+      <p>Let me paint a picture. A developer spins up an AI agent to automate a workflow. The agent needs access to internal systems. There's no agent identity framework, so what happens? <strong>The developer shares their own service account credentials.</strong> The agent now walks the network wearing a human mask.</p>
+
+      <p>This isn't a hypothetical. Research shows that <strong>teams are sharing human credentials and access tokens with agents</strong> because no alternative exists for securing identity within autonomous workflows. It's shadow IT on steroids, with a reasoning engine attached.</p>
+
+      <p>The governance frameworks we built for human employees don't work for AI agents. Why? Because agents are <strong>ephemeral</strong> (they spin up for minutes, then vanish), <strong>dynamic</strong> (they access different resources based on real-time reasoning), and <strong>autonomous</strong> (they make decisions without human review at each step).</p>
+
+      <div class="post-callout">
+        <div class="post-callout-label">My take</div>
+        <p>Identity has always been the real perimeter. But we built identity systems for beings that clock in, clock out, and take vacations. AI agents don't do any of that. They're the first "employees" that can exist in 50 places simultaneously, reason about what to access next, and disappear without a trace. If your IAM strategy doesn't have an agent chapter yet, you're already behind.</p>
+      </div>
+
+      <p>The most striking data point: <strong>only 18% of security leaders expressed high confidence</strong> that their current identity systems can effectively handle agent identities. That's not a gap. That's a canyon.</p>
+
+      <div class="post-sources">
+        <div class="post-sources-label">Sources & further reading</div>
+        <a href="https://www.strata.io/blog/agentic-identity/the-ai-agent-identity-crisis-new-research-reveals-a-governance-gap/" target="_blank" rel="noopener">Strata: The AI Agent Identity Crisis &rarr;</a>
+        <a href="https://www.cyberark.com/resources/blog/ai-agents-and-identity-risks-how-security-will-shift-in-2026" target="_blank" rel="noopener">CyberArk: AI Agents and Identity Risks &rarr;</a>
+        <a href="https://securityboulevard.com/2026/05/the-shadow-ai-governance-crisis-why-80-of-fortune-500-companies-have-already-lost-control-of-their-ai-infrastructure/" target="_blank" rel="noopener">Security Boulevard: Shadow AI Governance Crisis &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST 3 -->
+  <section class="post" id="post-3">
+    <div class="wrap">
+      <div class="post-number">03</div>
+      <span class="post-tag post-tag--threat">Threat Intel</span>
+      <h2>Prompt Injection Is the New SQL Injection</h2>
+      <div class="post-lead">Prompt injection attacks surged 340% year-over-year. And unlike SQL injection, there's no prepared statement to save you.</div>
+
+      <p>Twenty years ago, SQL injection was the embarrassing vulnerability that everyone knew about but nobody fixed fast enough. <strong>Prompt injection is following the exact same trajectory</strong>, except the blast radius is orders of magnitude larger.</p>
+
+      <p>When an AI agent browses the web, executes code, sends emails, and queries databases on your behalf, a successful prompt injection doesn't just leak data. <strong>It hijacks a reasoning engine with your organization's access privileges.</strong></p>
+
+      <p>Microsoft's security team recently published research on how prompts are becoming shells, documenting RCE vulnerabilities in AI agent frameworks. Let that sink in: <strong>natural language is now an attack surface for remote code execution</strong>.</p>
+
+      <div class="post-callout">
+        <div class="post-callout-label">My take</div>
+        <p>What makes prompt injection uniquely terrifying is that there's no equivalent of parameterized queries. With SQL injection, we found a clean architectural fix. With prompt injection, the vulnerability IS the feature. The agent's ability to process natural language instructions is both its superpower and its attack surface. This is a fundamentally new class of problem, and the industry needs to stop treating it like a variant of input validation.</p>
+      </div>
+
+      <p>The defense story simply hasn't kept pace. Security reviews across enterprise agent systems consistently find that <strong>production architectures have fewer prompt-injection defenses than comparable systems had SQL-injection defenses</strong> a decade ago.</p>
+
+      <div class="post-sources">
+        <div class="post-sources-label">Sources & further reading</div>
+        <a href="https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/" target="_blank" rel="noopener">Microsoft: When Prompts Become Shells &rarr;</a>
+        <a href="https://airia.com/ai-security-in-2026-prompt-injection-the-lethal-trifecta-and-how-to-defend/" target="_blank" rel="noopener">Airia: The Lethal Trifecta &rarr;</a>
+        <a href="https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/" target="_blank" rel="noopener">OWASP: Agentic AI Threats & Mitigations &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST 4 -->
+  <section class="post" id="post-4">
+    <div class="wrap">
+      <div class="post-number">04</div>
+      <span class="post-tag post-tag--governance">NHI Governance</span>
+      <h2>The 500-to-1 Problem Nobody Is Talking About</h2>
+      <div class="post-lead">Non-human identities outnumber humans 40:1 in most enterprises. In hyper-automated orgs, it's 500:1. And most of them are ungoverned.</div>
+
+      <p>Every API key. Every service account. Every AI agent. Every automation token. They're all non-human identities (NHIs). And they've been quietly multiplying in the background while security teams focused on human access reviews.</p>
+
+      <p>Now, with AI agents entering the picture at enterprise scale, the NHI explosion has become impossible to ignore. <strong>Gartner projects that 40% of enterprise applications will embed task-specific AI agents by end of 2026</strong>, up from less than 5% in 2025. Each one creates new machine identities requiring API access, credentials, and permissions.</p>
+
+      <p>The Verizon 2026 DBIR confirmed what practitioners have been whispering for months: <strong>identity is the control plane for agentic AI</strong>. And yet nearly half of companies are giving AI-powered tools access to their most sensitive data without consistent privileged access policies.</p>
+
+      <div class="post-callout">
+        <div class="post-callout-label">My take</div>
+        <p>We've been thinking about identity security through a human lens for two decades. Onboard the person, give them access, review it quarterly, offboard when they leave. NHIs don't follow that lifecycle. They multiply in CI/CD pipelines, live in config files, and never go through an annual access review. The organizations that crack NHI governance first don't just reduce risk. They unlock the ability to adopt agentic AI safely while competitors are still fighting shadow agents.</p>
+      </div>
+
+      <p>Here's the urgency: <strong>71% of organizations suffered at least one identity-related breach in the last 12 months</strong>. The NHI surface is the softest target in enterprise security today.</p>
+
+      <div class="post-sources">
+        <div class="post-sources-label">Sources & further reading</div>
+        <a href="https://www.token.security/blog/the-2026-data-breach-investigations-report-confirms-it-identity-is-the-control-plane-for-agentic-ai" target="_blank" rel="noopener">Token Security: DBIR 2026 & Identity &rarr;</a>
+        <a href="https://www.informationweek.com/risk-management/non-human-identity-sprawl-is-agentic-ai-s-real-risk" target="_blank" rel="noopener">InformationWeek: NHI Sprawl Is the Real Risk &rarr;</a>
+        <a href="https://www.asisonline.org/security-management-magazine/latest-news/today-in-security/2026/may/sophos-state-of-identity-security-2026/" target="_blank" rel="noopener">ASIS: State of Identity Security 2026 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST 5 -->
+  <section class="post" id="post-5">
+    <div class="wrap">
+      <div class="post-number">05</div>
+      <span class="post-tag post-tag--philosophy">Philosophy + Security</span>
+      <h2>Why Philosophy Belongs in Your Security Strategy</h2>
+      <div class="post-lead">We keep asking "how do we secure AI agents?" The better question is "what does trust mean when the entity acting on your behalf isn't human?"</div>
+
+      <p>I'll let you in on something. I studied philosophy before I ever touched a firewall. And the older I get in this industry, the more I realize <strong>the hardest problems in cybersecurity aren't technical. They're philosophical.</strong></p>
+
+      <p>When an AI agent makes a decision on behalf of your organization, who is accountable? When it accesses data it was technically authorized to see but shouldn't have reasoned about, was that a breach? When it "hallucinates" a decision that causes real-world damage, where does liability sit?</p>
+
+      <p>These aren't engineering problems. They're questions about <strong>agency, autonomy, responsibility, and trust</strong>. The same questions philosophers have been wrestling with for centuries. And yet most security frameworks treat AI agents as if they're just faster scripts.</p>
+
+      <div class="post-callout">
+        <div class="post-callout-label">My take</div>
+        <p>The cybersecurity industry has always been strongest when it borrows from other disciplines. Threat modeling came from military strategy. Zero trust came from "assume breach" thinking. The next great security framework will come from philosophy. Because when your "user" can reason, adapt, and act autonomously, the question isn't "did we set the right permissions?" It's "what does it mean to trust an entity that thinks differently than you do?" That's not a SOC conversation. That's Descartes in a hoodie.</p>
+      </div>
+
+      <p>The best security thinkers I know aren't just technologists. They're storytellers who can make a CISO feel the risk in their gut. <strong>Narrative is how we turn signal into action.</strong> And right now, the AI agent security story is being written by compliance checklists instead of people who understand what's actually at stake.</p>
+
+      <p>The industry doesn't need another framework document. It needs voices that can translate what's happening into something people care about. That's what I'm trying to do here.</p>
+
+      <div class="post-sources">
+        <div class="post-sources-label">Sources & further reading</div>
+        <a href="https://www.govinfosecurity.com/agentic-ai-redefines-identity-security-a-31253" target="_blank" rel="noopener">GovInfoSecurity: Agentic AI Redefines Identity &rarr;</a>
+        <a href="https://thehackernews.com/2026/05/agent-ai-is-coming-are-you-ready.html" target="_blank" rel="noopener">The Hacker News: Agent AI Is Coming &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="blog-cta" style="position:relative;z-index:1;">
+    <div class="wrap">
+      <h2>Want to keep the <em>conversation</em> going?</h2>
+      <p>I write about AI agent security, identity, and the future of cybersecurity. Let's connect.</p>
+      <div class="blog-cta-links">
+        <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank" rel="noopener" class="cta-btn cta-btn--primary">Connect on LinkedIn</a>
+        <a href="index.html" class="cta-btn cta-btn--ghost">&larr; Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-copy">&copy; 2026 Yoad M. Dvir</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank">LinkedIn</a>
+      <a href="https://www.silverfort.com" target="_blank">Silverfort</a>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.post').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
