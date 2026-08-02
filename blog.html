@@ -366,6 +366,49 @@
       color: var(--warm); margin-bottom: 0.8rem;
     }
 
+    /* ── SILVERFORT ARTICLES ── */
+    .sf-articles { padding: 3rem 0 1rem; position: relative; z-index: 1; }
+    .sf-articles-head { margin-bottom: 2rem; }
+    .sf-label {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 0.8rem;
+    }
+    .sf-articles-head h2 {
+      font-family: var(--font-editorial);
+      font-size: 1.8rem; font-weight: 400; font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+    .sf-articles-head p {
+      font-size: 0.9rem; color: var(--text-secondary); font-weight: 300;
+      max-width: 60ch;
+    }
+    .sf-list { border-top: 1px solid var(--border); }
+    .sf-row {
+      display: grid; grid-template-columns: 108px 1fr;
+      align-items: baseline; gap: 1.4rem;
+      padding: 1.2rem 0.8rem; border-bottom: 1px solid var(--border);
+      text-decoration: none; color: inherit;
+      transition: background .25s ease, padding-left .25s ease;
+    }
+    .sf-row:hover { background: rgba(255,255,255,0.02); padding-left: 1.4rem; }
+    .sf-date {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      color: var(--text-muted); white-space: nowrap;
+    }
+    .sf-title { font-size: 0.98rem; font-weight: 400; line-height: 1.5; transition: color .25s ease; }
+    .sf-row:hover .sf-title { color: var(--accent-bright); }
+    .sf-more {
+      display: inline-block; margin-top: 1.6rem;
+      font-family: var(--font-mono); font-size: 0.75rem;
+      color: var(--accent-bright); text-decoration: none;
+      border-bottom: 1px solid transparent; transition: border-color .25s ease;
+    }
+    .sf-more:hover { border-color: var(--accent-bright); }
+    @media (max-width: 640px) {
+      .sf-row { grid-template-columns: 1fr; gap: 0.35rem; }
+    }
+
     /* ── CTA ── */
     .blog-cta {
       padding: 4rem 0;
@@ -631,6 +674,46 @@
         <a href="https://www.govinfosecurity.com/agentic-ai-redefines-identity-security-a-31253" target="_blank" rel="noopener">GovInfoSecurity: Agentic AI Redefines Identity &rarr;</a>
         <a href="https://thehackernews.com/2026/05/agent-ai-is-coming-are-you-ready.html" target="_blank" rel="noopener">The Hacker News: Agent AI Is Coming &rarr;</a>
       </div>
+    </div>
+  </section>
+
+  <!-- SILVERFORT ARTICLES -->
+  <section class="sf-articles" id="silverfort">
+    <div class="wrap">
+      <div class="sf-articles-head">
+        <p class="sf-label">Published Work</p>
+        <h2>Some of the things I've done at <em>Silverfort</em></h2>
+        <p>The commentary above is mine. This is the work that ran under the Silverfort masthead: threat research, practitioner conversations, and product launches.</p>
+      </div>
+
+      <div class="sf-list">
+        <a href="https://www.silverfort.com/blog/the-identity-underground-community-shares-research-on-the-identity-security-consolidation-wave/" target="_blank" rel="noopener" class="sf-row">
+          <time class="sf-date" datetime="2026-01-20">Jan 20, 2026</time>
+          <span class="sf-title">The Identity Underground community shares research on the Identity Security consolidation wave</span>
+        </a>
+        <a href="https://www.silverfort.com/blog/trick-or-scheme-a-conversation-with-ido-halevi-on-ai-agent-security/" target="_blank" rel="noopener" class="sf-row">
+          <time class="sf-date" datetime="2025-10-30">Oct 30, 2025</time>
+          <span class="sf-title">Trick or Scheme? A Conversation with Ido Halevi on AI Agent Security</span>
+        </a>
+        <a href="https://www.silverfort.com/blog/its-the-identity-stupid-a-conversation-with-identity-security-expert-abbas-kudrati/" target="_blank" rel="noopener" class="sf-row">
+          <time class="sf-date" datetime="2025-03-27">Mar 27, 2025</time>
+          <span class="sf-title">"It's the identity, stupid": A conversation with identity security expert Abbas Kudrati</span>
+        </a>
+        <a href="https://www.silverfort.com/blog/do-you-have-all-the-identity-security-signals-and-controls-to-make-ssf-caep-work/" target="_blank" rel="noopener" class="sf-row">
+          <time class="sf-date" datetime="2024-11-19">Nov 19, 2024</time>
+          <span class="sf-title">Do you have all the identity security signals and controls to make SSF/CAEP work?</span>
+        </a>
+        <a href="https://www.silverfort.com/blog/introducing-silverforts-identity-first-incident-response-block-lateral-movement-detect-compromised-accounts-and-accelerate-recovery/" target="_blank" rel="noopener" class="sf-row">
+          <time class="sf-date" datetime="2024-09-30">Sep 30, 2024</time>
+          <span class="sf-title">Introducing Silverfort's Identity-First Incident Response: Block Lateral Movement, Detect Compromised Accounts and Accelerate Recovery</span>
+        </a>
+        <a href="https://www.silverfort.com/blog/understanding-the-security-risks-of-ntlm/" target="_blank" rel="noopener" class="sf-row">
+          <time class="sf-date" datetime="2024-08-15">Aug 15, 2024</time>
+          <span class="sf-title">Understanding the Security Risks of NTLM</span>
+        </a>
+      </div>
+
+      <a href="https://www.silverfort.com/author/yoad/" target="_blank" rel="noopener" class="sf-more">All articles on the Silverfort blog &rarr;</a>
     </div>
   </section>
 
