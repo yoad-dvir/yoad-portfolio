@@ -272,7 +272,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="image" href="photo.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="gallery/msft-jump.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="photo-hero.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Sora:wght@200;300;400;500;600;700;800&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
 
   <style>
@@ -433,7 +434,7 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 9rem 2rem 4rem;
+      padding: 3.2rem 2rem 4rem;
       position: relative; z-index: 1;
     }
 
@@ -1074,9 +1075,10 @@
        Photos are a mix of portrait and landscape. Rather than crop faces
        out with object-fit:cover, each slide pairs a blurred cover backdrop
        with a contained sharp image, so every shot is shown whole. */
+    /* sits above the hero, so it owns the clearance for the fixed nav */
     .carousel {
       position: relative; z-index: 1;
-      max-width: var(--max-w); margin: 0 auto; padding: 0 2rem;
+      max-width: var(--max-w); margin: 0 auto; padding: 6.2rem 2rem 0;
     }
     .carousel-frame {
       position: relative; overflow: hidden;
@@ -1142,7 +1144,7 @@
     .carousel-dot.active { width: 44px; }
     .carousel-dot.active::before { background: var(--accent); }
     @media (max-width: 700px) {
-      .carousel { padding: 0 1.2rem; }
+      .carousel { padding: 5.2rem 1.2rem 0; }
       .carousel-frame { height: 300px; border-radius: 12px; }
       .carousel-cap { font-size: 0.82rem; padding: 2rem 1rem 1rem; }
       .carousel-btn { width: 44px; height: 44px; }
@@ -1333,6 +1335,49 @@
     </button>
   </nav>
 
+  <!-- WELCOME CAROUSEL -->
+  <section class="carousel reveal" id="hello" aria-roledescription="carousel" aria-label="Photos from Yoad's career">
+    <div class="carousel-frame">
+      <div class="carousel-track" id="carTrack">
+
+        <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5">
+          <img class="carousel-bg" src="gallery/msft-jump.jpg" alt="" aria-hidden="true" />
+          <img class="carousel-img" src="gallery/msft-jump.jpg" alt="Yoad Dvir mid-jump, arms wide, inside a giant illuminated Microsoft logo" width="1119" height="1200" />
+          <div class="carousel-cap"><span>Microsoft</span><b>Ten years there. I never did learn to stand still.</b></div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+          <img class="carousel-bg" src="gallery/msft-sign-dog.jpg" alt="" aria-hidden="true" loading="lazy" />
+          <img class="carousel-img" src="gallery/msft-sign-dog.jpg" alt="Yoad Dvir smiling with his dog in front of the Microsoft sign" width="1100" height="699" loading="lazy" />
+          <div class="carousel-cap"><span>Take your dog to work</span><b>Best colleague I ever had.</b></div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+          <img class="carousel-bg" src="gallery/yoad-smile-bw.jpg" alt="" aria-hidden="true" loading="lazy" />
+          <img class="carousel-img" src="gallery/yoad-smile-bw.jpg" alt="Black and white portrait of Yoad Dvir smiling outside the Microsoft offices" width="568" height="1200" loading="lazy" />
+          <div class="carousel-cap"><span>Herzliya</span><b>Still the same grin, twenty years in.</b></div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+          <img class="carousel-bg" src="gallery/silverfort-office.jpg" alt="" aria-hidden="true" loading="lazy" />
+          <img class="carousel-img" src="gallery/silverfort-office.jpg" alt="Yoad's dog standing under the illuminated Silverfort logo in the office" width="538" height="1200" loading="lazy" />
+          <div class="carousel-cap"><span>Silverfort</span><b>Non-human identity, on four legs.</b></div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+          <img class="carousel-bg" src="gallery/silverfort-mural.jpg" alt="" aria-hidden="true" loading="lazy" />
+          <img class="carousel-img" src="gallery/silverfort-mural.jpg" alt="Yoad's dog in front of the Silverfort office mural of a hooded figure at a laptop" width="540" height="1200" loading="lazy" />
+          <div class="carousel-cap"><span>The office mural</span><b>Everyone here is hunting something.</b></div>
+        </div>
+
+      </div>
+      <button class="carousel-btn carousel-btn--prev" id="carPrev" aria-label="Previous photo">&#8249;</button>
+      <button class="carousel-btn carousel-btn--next" id="carNext" aria-label="Next photo">&#8250;</button>
+    </div>
+    <div class="carousel-dots" id="carDots" role="tablist" aria-label="Choose photo"></div>
+  </section>
+
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
@@ -1376,48 +1421,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- WELCOME CAROUSEL -->
-  <section class="carousel reveal" id="hello" aria-roledescription="carousel" aria-label="Photos from Yoad's career">
-    <div class="carousel-frame">
-      <div class="carousel-track" id="carTrack">
-
-        <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5">
-          <img class="carousel-bg" src="gallery/msft-jump.jpg" alt="" aria-hidden="true" />
-          <img class="carousel-img" src="gallery/msft-jump.jpg" alt="Yoad Dvir mid-jump, arms wide, inside a giant illuminated Microsoft logo" width="1119" height="1200" />
-          <div class="carousel-cap"><span>Microsoft</span><b>Ten years there. I never did learn to stand still.</b></div>
-        </div>
-
-        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
-          <img class="carousel-bg" src="gallery/msft-sign-dog.jpg" alt="" aria-hidden="true" loading="lazy" />
-          <img class="carousel-img" src="gallery/msft-sign-dog.jpg" alt="Yoad Dvir smiling with his dog in front of the Microsoft sign" width="1100" height="699" loading="lazy" />
-          <div class="carousel-cap"><span>Take your dog to work</span><b>Best colleague I ever had.</b></div>
-        </div>
-
-        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
-          <img class="carousel-bg" src="gallery/yoad-smile-bw.jpg" alt="" aria-hidden="true" loading="lazy" />
-          <img class="carousel-img" src="gallery/yoad-smile-bw.jpg" alt="Black and white portrait of Yoad Dvir smiling outside the Microsoft offices" width="568" height="1200" loading="lazy" />
-          <div class="carousel-cap"><span>Herzliya</span><b>Still the same grin, twenty years in.</b></div>
-        </div>
-
-        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
-          <img class="carousel-bg" src="gallery/silverfort-office.jpg" alt="" aria-hidden="true" loading="lazy" />
-          <img class="carousel-img" src="gallery/silverfort-office.jpg" alt="Yoad's dog standing under the illuminated Silverfort logo in the office" width="538" height="1200" loading="lazy" />
-          <div class="carousel-cap"><span>Silverfort</span><b>Non-human identity, on four legs.</b></div>
-        </div>
-
-        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
-          <img class="carousel-bg" src="gallery/silverfort-mural.jpg" alt="" aria-hidden="true" loading="lazy" />
-          <img class="carousel-img" src="gallery/silverfort-mural.jpg" alt="Yoad's dog in front of the Silverfort office mural of a hooded figure at a laptop" width="540" height="1200" loading="lazy" />
-          <div class="carousel-cap"><span>The office mural</span><b>Everyone here is hunting something.</b></div>
-        </div>
-
-      </div>
-      <button class="carousel-btn carousel-btn--prev" id="carPrev" aria-label="Previous photo">&#8249;</button>
-      <button class="carousel-btn carousel-btn--next" id="carNext" aria-label="Next photo">&#8250;</button>
-    </div>
-    <div class="carousel-dots" id="carDots" role="tablist" aria-label="Choose photo"></div>
   </section>
 
   <!-- LOGOS MARQUEE -->
