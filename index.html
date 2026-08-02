@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yoad Dvir (Yoad M. Dvir) | AI Agent Security Evangelist, Thought Leader & Speaker</title>
-  <meta name="description" content="Yoad Dvir (Yoad M. Dvir) is an AI Agent Security evangelist, thought leader and Senior Product Marketing Manager at Silverfort. Public speaker, cybersecurity storyteller, GTM leader, and Head of Content at The Identity Underground. 20+ years in cybersecurity and identity protection." />
+  <title>Yoad Dvir | AI Agent Security Evangelist, Speaker & Storyteller</title>
+  <meta name="description" content="Yoad Dvir (Yoad M. Dvir) is an AI Agent Security evangelist and Sr. Product Marketing Manager at Silverfort. Speaker, storyteller, Head of Content at The Identity Underground." />
   <meta name="keywords" content="Yoad Dvir, Yoad M. Dvir, Yoad M Dvir, יועד דביר, AI Agent Security, cybersecurity storyteller, cybersecurity evangelist, thought leader, field CISO, field CTO, go-to-market, GTM leader, identity security, Silverfort, Identity Underground, product marketing, public speaker, thought leadership, agentic AI security, non-human identity, cybersecurity speaker, identity threat intelligence, agentic identity, אבטחת סייבר, שיווק מוצר, אבטחת זהויות" />
   <meta name="author" content="Yoad M. Dvir" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -1170,6 +1170,31 @@
 
     :where(a, button, [tabindex]):focus-visible {
       outline: 2px solid var(--accent-bright); outline-offset: 3px; border-radius: 4px;
+    }
+
+    /* ── MOBILE LEGIBILITY & TAP TARGETS ──
+       Micro mono labels bottom out around 8.8-9.9px on a phone, which is
+       below the ~12px legibility floor. Bump them on small screens only,
+       so the desktop typographic scale is untouched. */
+    @media (max-width: 700px) {
+      .trend-tag, .content-badge { font-size: 0.68rem !important; }
+      .nav-tag, .hero-stat-label, .career-chip-year,
+      .logos-label, .content-meta, .community-label, .topic-tag,
+      .section-label, .article-tag, .pillar-num,
+      .footer-copy, .footer-links a { font-size: 0.7rem !important; }
+      .article-date { font-size: 0.72rem; }
+      .hero-roles li { font-size: 0.72rem; }
+      .career-chip-sep { font-size: 0.72rem; }
+
+      /* WCAG 2.2 target size: was 28x23 */
+      .hamburger {
+        min-width: 44px; min-height: 44px;
+        align-items: center; justify-content: center;
+        margin-right: -10px;
+      }
+      /* keep nav + footer links comfortably tappable */
+      .nav-links.open a { padding: 0.35rem 0; display: block; }
+      .footer-links a { display: inline-block; padding: 0.4rem 0; }
     }
   </style>
 </head>

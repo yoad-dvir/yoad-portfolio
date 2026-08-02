@@ -484,6 +484,17 @@
       }
       .post { opacity: 1; transform: none; }
     }
+
+    /* ── MOBILE LEGIBILITY & TAP TARGETS ── */
+    @media (max-width: 700px) {
+      .post-tag, .post-number, .post-sources-label, .post-callout-label,
+      .sf-label, .sf-date, .footer-copy, .footer-links a,
+      .nav-tag, .cta-btn { font-size: 0.7rem !important; }
+      .footer-links a { display: inline-block; padding: 0.4rem 0; }
+      /* WCAG 2.2 target size: source links were only 20px tall */
+      .post-sources a { display: block; padding: 0.45rem 0; line-height: 1.5; }
+      .sf-more { display: inline-block; padding: 0.4rem 0; }
+    }
   </style>
 </head>
 <body>
@@ -733,8 +744,8 @@
     <span class="footer-copy">&copy; 2026 Yoad M. Dvir</span>
     <div class="footer-links">
       <a href="index.html">Home</a>
-      <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank">LinkedIn</a>
-      <a href="https://www.silverfort.com" target="_blank">Silverfort</a>
+      <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.silverfort.com" target="_blank" rel="noopener">Silverfort</a>
     </div>
   </footer>
 
