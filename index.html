@@ -1070,6 +1070,89 @@
       .connect-actions { flex-direction: column; align-items: center; }
     }
 
+    /* ── WELCOME CAROUSEL ──
+       Photos are a mix of portrait and landscape. Rather than crop faces
+       out with object-fit:cover, each slide pairs a blurred cover backdrop
+       with a contained sharp image, so every shot is shown whole. */
+    .carousel {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 2rem;
+    }
+    .carousel-frame {
+      position: relative; overflow: hidden;
+      border-radius: 16px; border: 1px solid var(--border);
+      background: var(--bg-card); height: 440px;
+    }
+    .carousel-track { height: 100%; }
+    .carousel-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity .9s ease;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carousel-slide.active { opacity: 1; }
+    .carousel-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; filter: blur(34px) brightness(0.38) saturate(1.1);
+      transform: scale(1.15);
+    }
+    .carousel-img {
+      position: relative; height: 100%; width: auto; max-width: 100%;
+      object-fit: contain; display: block;
+    }
+    .carousel-cap {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 2.4rem 1.6rem 1.3rem;
+      background: linear-gradient(to top, rgba(9,9,11,0.92), transparent);
+      font-size: 0.92rem; color: var(--text);
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem;
+    }
+    .carousel-cap b { font-weight: 600; }
+    .carousel-cap span {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      color: var(--accent-bright); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(9,9,11,0.62); border: 1px solid var(--border-hover);
+      color: var(--text); cursor: pointer; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; line-height: 1;
+      transition: background .25s ease, border-color .25s ease;
+      backdrop-filter: blur(8px);
+    }
+    .carousel-btn:hover { background: rgba(9,9,11,0.85); border-color: var(--accent); }
+    .carousel-btn--prev { left: 0.9rem; }
+    .carousel-btn--next { right: 0.9rem; }
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 0.35rem; margin-top: 0.5rem;
+    }
+    /* the visible bar is 4px, but the button itself is 24px tall so it
+       clears the WCAG 2.2 target-size minimum */
+    .carousel-dot {
+      width: 28px; height: 24px; border: 0; padding: 0; background: none;
+      cursor: pointer; display: flex; align-items: center;
+      transition: width .25s ease;
+    }
+    .carousel-dot::before {
+      content: ''; display: block; width: 100%; height: 4px;
+      border-radius: 100px; background: var(--border-hover);
+      transition: background .25s ease;
+    }
+    .carousel-dot.active { width: 44px; }
+    .carousel-dot.active::before { background: var(--accent); }
+    @media (max-width: 700px) {
+      .carousel { padding: 0 1.2rem; }
+      .carousel-frame { height: 300px; border-radius: 12px; }
+      .carousel-cap { font-size: 0.82rem; padding: 2rem 1rem 1rem; }
+      .carousel-btn { width: 44px; height: 44px; }
+      .carousel-btn--prev { left: 0.5rem; }
+      .carousel-btn--next { right: 0.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .carousel-slide { transition: none; }
+    }
+
     /* ── ABOUT META ── */
     .about-meta {
       display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
@@ -1258,7 +1341,7 @@
         <h1 class="hero-name">Yoad M. Dvir</h1>
         <span class="hero-name-hebrew" lang="he" dir="rtl">יועד דביר</span>
         <p class="hero-tagline">Making cybersecurity <em>human</em> – through AI, stories & curiosity.</p>
-        <p class="hero-desc">This is where I keep my work. Twenty years of it: the research, the reports, the talks, the conversations that went somewhere. I give researchers a voice and turn complex identity security into stories people act on. If something here is useful to you, that's the whole point.</p>
+        <p class="hero-desc">This is where I keep my work: twenty years of research, reports and talks. I give researchers a voice and turn identity security into stories people act on.</p>
         <ul class="hero-roles">
           <li>Thought Leader</li>
           <li>Evangelist</li>
@@ -1293,6 +1376,48 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- WELCOME CAROUSEL -->
+  <section class="carousel reveal" id="hello" aria-roledescription="carousel" aria-label="Photos from Yoad's career">
+    <div class="carousel-frame">
+      <div class="carousel-track" id="carTrack">
+
+        <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5">
+          <img class="carousel-bg" src="gallery/msft-jump.jpg" alt="" aria-hidden="true" />
+          <img class="carousel-img" src="gallery/msft-jump.jpg" alt="Yoad Dvir mid-jump, arms wide, inside a giant illuminated Microsoft logo" width="1119" height="1200" />
+          <div class="carousel-cap"><span>Microsoft</span><b>Ten years there. I never did learn to stand still.</b></div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+          <img class="carousel-bg" src="gallery/msft-sign-dog.jpg" alt="" aria-hidden="true" loading="lazy" />
+          <img class="carousel-img" src="gallery/msft-sign-dog.jpg" alt="Yoad Dvir smiling with his dog in front of the Microsoft sign" width="1100" height="699" loading="lazy" />
+          <div class="carousel-cap"><span>Take your dog to work</span><b>Best colleague I ever had.</b></div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+          <img class="carousel-bg" src="gallery/yoad-smile-bw.jpg" alt="" aria-hidden="true" loading="lazy" />
+          <img class="carousel-img" src="gallery/yoad-smile-bw.jpg" alt="Black and white portrait of Yoad Dvir smiling outside the Microsoft offices" width="568" height="1200" loading="lazy" />
+          <div class="carousel-cap"><span>Herzliya</span><b>Still the same grin, twenty years in.</b></div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+          <img class="carousel-bg" src="gallery/silverfort-office.jpg" alt="" aria-hidden="true" loading="lazy" />
+          <img class="carousel-img" src="gallery/silverfort-office.jpg" alt="Yoad's dog standing under the illuminated Silverfort logo in the office" width="538" height="1200" loading="lazy" />
+          <div class="carousel-cap"><span>Silverfort</span><b>Non-human identity, on four legs.</b></div>
+        </div>
+
+        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+          <img class="carousel-bg" src="gallery/silverfort-mural.jpg" alt="" aria-hidden="true" loading="lazy" />
+          <img class="carousel-img" src="gallery/silverfort-mural.jpg" alt="Yoad's dog in front of the Silverfort office mural of a hooded figure at a laptop" width="540" height="1200" loading="lazy" />
+          <div class="carousel-cap"><span>The office mural</span><b>Everyone here is hunting something.</b></div>
+        </div>
+
+      </div>
+      <button class="carousel-btn carousel-btn--prev" id="carPrev" aria-label="Previous photo">&#8249;</button>
+      <button class="carousel-btn carousel-btn--next" id="carNext" aria-label="Next photo">&#8250;</button>
+    </div>
+    <div class="carousel-dots" id="carDots" role="tablist" aria-label="Choose photo"></div>
   </section>
 
   <!-- LOGOS MARQUEE -->
@@ -1783,6 +1908,94 @@
       const open = navLinks.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', String(open));
     });
+
+    /* ── WELCOME CAROUSEL ── */
+    (() => {
+      const slides = [...document.querySelectorAll('.carousel-slide')];
+      if (!slides.length) return;
+      const dotsWrap = document.getElementById('carDots');
+      const frame = document.querySelector('.carousel-frame');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let i = 0, timer = null;
+
+      slides.forEach((_, n) => {
+        const b = document.createElement('button');
+        b.className = 'carousel-dot' + (n === 0 ? ' active' : '');
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', `Photo ${n + 1}`);
+        b.addEventListener('click', () => { go(n); restart(); });
+        dotsWrap.appendChild(b);
+      });
+      const dots = [...dotsWrap.children];
+
+      // pull a slide's images out of lazy loading before it is shown,
+      // so advancing never lands on a not-yet-loaded frame
+      function preload(n) {
+        const s = slides[(n + slides.length) % slides.length];
+        s.querySelectorAll('img[loading="lazy"]').forEach(img => {
+          img.loading = 'eager';
+          if (!img.complete) { const u = img.src; img.src = ''; img.src = u; }
+        });
+      }
+
+      function go(n) {
+        i = (n + slides.length) % slides.length;
+        slides.forEach((s, k) => s.classList.toggle('active', k === i));
+        dots.forEach((d, k) => {
+          d.classList.toggle('active', k === i);
+          d.setAttribute('aria-selected', String(k === i));
+        });
+        preload(i + 1); preload(i - 1);
+      }
+      const next = () => go(i + 1), prev = () => go(i - 1);
+
+      // Only run while on screen: no churn, and never land on an unloaded
+      // frame. Defaults to true and lets the observer switch it off, so if
+      // IntersectionObserver never reports, the carousel still plays rather
+      // than sitting frozen.
+      let visible = true;
+      function start() { if (!reduce && visible && !timer) timer = setInterval(next, 5200); }
+      function stop() { clearInterval(timer); timer = null; }
+      function restart() { stop(); start(); }
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+          visible = entries[0].isIntersecting;
+          if (visible) { preload(i + 1); start(); } else stop();
+        }, { threshold: 0.25 }).observe(frame);
+      }
+
+      document.getElementById('carNext').addEventListener('click', () => { next(); restart(); });
+      document.getElementById('carPrev').addEventListener('click', () => { prev(); restart(); });
+
+      // pause while hovered or focused, resume after
+      frame.addEventListener('mouseenter', stop);
+      frame.addEventListener('mouseleave', start);
+      frame.addEventListener('focusin', stop);
+      frame.addEventListener('focusout', start);
+
+      // pause when the tab is hidden so it doesn't churn in the background
+      document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+
+      // keyboard
+      frame.setAttribute('tabindex', '0');
+      frame.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') { next(); restart(); }
+        if (e.key === 'ArrowLeft') { prev(); restart(); }
+      });
+
+      // swipe
+      let x0 = null;
+      frame.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+      frame.addEventListener('touchend', e => {
+        if (x0 === null) return;
+        const dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 45) dx < 0 ? next() : prev();
+        x0 = null; start();
+      }, { passive: true });
+
+      start();
+    })();
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
