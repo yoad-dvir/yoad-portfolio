@@ -385,19 +385,29 @@
     }
     .sf-list { border-top: 1px solid var(--border); }
     .sf-row {
-      display: grid; grid-template-columns: 108px 1fr;
-      align-items: baseline; gap: 1.4rem;
-      padding: 1.2rem 0.8rem; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 140px 1fr;
+      align-items: center; gap: 1.2rem;
+      padding: 1rem 0.8rem; border-bottom: 1px solid var(--border);
       text-decoration: none; color: inherit;
       transition: background .25s ease, padding-left .25s ease;
     }
     .sf-row:hover { background: rgba(255,255,255,0.02); padding-left: 1.4rem; }
-    .sf-date {
-      font-family: var(--font-mono); font-size: 0.72rem;
-      color: var(--text-muted); white-space: nowrap;
+    /* local snapshots of each post's social image from the Silverfort blog */
+    .sf-thumb {
+      width: 140px; height: 79px; object-fit: cover; display: block;
+      border-radius: 7px; border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      transition: border-color .25s ease, transform .3s ease;
     }
+    .sf-row:hover .sf-thumb { border-color: rgba(59,130,246,0.4); transform: scale(1.03); }
+    .sf-main { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
     .sf-title { font-size: 0.98rem; font-weight: 400; line-height: 1.5; transition: color .25s ease; }
     .sf-row:hover .sf-title { color: var(--accent-bright); }
+    .sf-byline {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      color: var(--text-muted); letter-spacing: 0.03em;
+    }
+    .sf-byline i { font-style: normal; opacity: 0.5; margin: 0 0.15rem; }
     .sf-more {
       display: inline-block; margin-top: 1.6rem;
       font-family: var(--font-mono); font-size: 0.75rem;
@@ -406,7 +416,10 @@
     }
     .sf-more:hover { border-color: var(--accent-bright); }
     @media (max-width: 640px) {
-      .sf-row { grid-template-columns: 1fr; gap: 0.35rem; }
+      .sf-articles .wrap { padding: 0 1.1rem; }
+      .sf-row { grid-template-columns: 100px 1fr; gap: 0.85rem; padding: 0.9rem 0.35rem; }
+      .sf-thumb { width: 100px; height: 56px; }
+      .sf-title { overflow-wrap: break-word; }
     }
 
     /* ── CTA ── */
@@ -699,28 +712,51 @@
 
       <div class="sf-list">
         <a href="https://www.silverfort.com/blog/the-identity-underground-community-shares-research-on-the-identity-security-consolidation-wave/" target="_blank" rel="noopener" class="sf-row">
-          <time class="sf-date" datetime="2026-01-20">Jan 20, 2026</time>
-          <span class="sf-title">The Identity Underground community shares research on the Identity Security consolidation wave</span>
+          <img class="sf-thumb" src="articles/idu-consolidation.jpg" alt="Article preview image: The Identity Underground community shares research on the Identity Security consolidation wave" width="640" height="360" loading="lazy" />
+          <span class="sf-main">
+            <span class="sf-title">The Identity Underground community shares research on the Identity Security consolidation wave</span>
+            <span class="sf-byline">Yoad Dvir <i>&middot;</i> <time datetime="2026-01-20">Jan 20, 2026</time> <i>&middot;</i> Silverfort</span>
+          </span>
         </a>
+
         <a href="https://www.silverfort.com/blog/trick-or-scheme-a-conversation-with-ido-halevi-on-ai-agent-security/" target="_blank" rel="noopener" class="sf-row">
-          <time class="sf-date" datetime="2025-10-30">Oct 30, 2025</time>
-          <span class="sf-title">Trick or Scheme? A Conversation with Ido Halevi on AI Agent Security</span>
+          <img class="sf-thumb" src="articles/trick-or-scheme.jpg" alt="Article preview image: Trick or Scheme? A Conversation with Ido Halevi on AI Agent Security" width="640" height="360" loading="lazy" />
+          <span class="sf-main">
+            <span class="sf-title">Trick or Scheme? A Conversation with Ido Halevi on AI Agent Security</span>
+            <span class="sf-byline">Yoad Dvir <i>&middot;</i> <time datetime="2025-10-30">Oct 30, 2025</time> <i>&middot;</i> Silverfort</span>
+          </span>
         </a>
+
         <a href="https://www.silverfort.com/blog/its-the-identity-stupid-a-conversation-with-identity-security-expert-abbas-kudrati/" target="_blank" rel="noopener" class="sf-row">
-          <time class="sf-date" datetime="2025-03-27">Mar 27, 2025</time>
-          <span class="sf-title">"It's the identity, stupid": A conversation with identity security expert Abbas Kudrati</span>
+          <img class="sf-thumb" src="articles/its-the-identity.jpg" alt="Article preview image: &#x27;It&#x27;s the identity, stupid&#x27;: A conversation with identity security expert Abbas Kudrati" width="640" height="360" loading="lazy" />
+          <span class="sf-main">
+            <span class="sf-title">&quot;It&#39;s the identity, stupid&quot;: A conversation with identity security expert Abbas Kudrati</span>
+            <span class="sf-byline">Yoad Dvir <i>&middot;</i> <time datetime="2025-03-27">Mar 27, 2025</time> <i>&middot;</i> Silverfort</span>
+          </span>
         </a>
+
         <a href="https://www.silverfort.com/blog/do-you-have-all-the-identity-security-signals-and-controls-to-make-ssf-caep-work/" target="_blank" rel="noopener" class="sf-row">
-          <time class="sf-date" datetime="2024-11-19">Nov 19, 2024</time>
-          <span class="sf-title">Do you have all the identity security signals and controls to make SSF/CAEP work?</span>
+          <img class="sf-thumb" src="articles/ssf-caep.jpg" alt="Article preview image: Do you have all the identity security signals and controls to make SSF/CAEP work?" width="640" height="360" loading="lazy" />
+          <span class="sf-main">
+            <span class="sf-title">Do you have all the identity security signals and controls to make SSF/CAEP work?</span>
+            <span class="sf-byline">Yoad Dvir <i>&middot;</i> <time datetime="2024-11-19">Nov 19, 2024</time> <i>&middot;</i> Silverfort</span>
+          </span>
         </a>
+
         <a href="https://www.silverfort.com/blog/introducing-silverforts-identity-first-incident-response-block-lateral-movement-detect-compromised-accounts-and-accelerate-recovery/" target="_blank" rel="noopener" class="sf-row">
-          <time class="sf-date" datetime="2024-09-30">Sep 30, 2024</time>
-          <span class="sf-title">Introducing Silverfort's Identity-First Incident Response: Block Lateral Movement, Detect Compromised Accounts and Accelerate Recovery</span>
+          <img class="sf-thumb" src="articles/identity-first-ir.jpg" alt="Article preview image: Introducing Silverfort&#x27;s Identity-First Incident Response: Block Lateral Movement, Detect Compromised Accounts and Accelerate Recovery" width="640" height="360" loading="lazy" />
+          <span class="sf-main">
+            <span class="sf-title">Introducing Silverfort&#39;s Identity-First Incident Response: Block Lateral Movement, Detect Compromised Accounts and Accelerate Recovery</span>
+            <span class="sf-byline">Yoad Dvir <i>&middot;</i> <time datetime="2024-09-30">Sep 30, 2024</time> <i>&middot;</i> Silverfort</span>
+          </span>
         </a>
+
         <a href="https://www.silverfort.com/blog/understanding-the-security-risks-of-ntlm/" target="_blank" rel="noopener" class="sf-row">
-          <time class="sf-date" datetime="2024-08-15">Aug 15, 2024</time>
-          <span class="sf-title">Understanding the Security Risks of NTLM</span>
+          <img class="sf-thumb" src="articles/ntlm.jpg" alt="Article preview image: Understanding the Security Risks of NTLM" width="640" height="360" loading="lazy" />
+          <span class="sf-main">
+            <span class="sf-title">Understanding the Security Risks of NTLM</span>
+            <span class="sf-byline">Yoad Dvir <i>&middot;</i> <time datetime="2024-08-15">Aug 15, 2024</time> <i>&middot;</i> Silverfort</span>
+          </span>
         </a>
       </div>
 
