@@ -375,6 +375,8 @@
     .nav-links {
       display: flex; gap: 1.8rem; list-style: none; align-items: center;
     }
+    /* WCAG 2.2 target size: these links were only 16px tall */
+    .nav-links a:not(.nav-cta) { padding: 0.42rem 0; display: inline-block; }
 
     .nav-links a {
       font-size: 0.8rem; color: var(--text-muted);
@@ -1008,7 +1010,8 @@
       color: var(--text-muted); letter-spacing: 0.08em;
     }
 
-    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links { display: flex; gap: 1.5rem; align-items: center; }
+    .footer-links a { padding: 0.45rem 0; display: inline-block; }
 
     .footer-links a {
       font-family: var(--font-mono); font-size: 0.58rem;
@@ -1292,6 +1295,7 @@
       padding: 0.28rem 0.6rem; border-radius: 100px; white-space: nowrap;
     }
     .articles-more {
+      padding: 0.35rem 0;
       display: inline-flex; align-items: center; gap: 0.5rem;
       margin-top: 2rem; font-family: var(--font-mono); font-size: 0.8rem;
       color: var(--accent-bright); text-decoration: none;
