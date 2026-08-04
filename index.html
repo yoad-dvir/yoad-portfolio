@@ -1233,42 +1233,58 @@
 
     /* ── ARTICLES ── */
     .articles { padding: 6rem 2rem 2rem; position: relative; z-index: 1; }
-    .articles-list {
-      margin-top: 3rem; border-top: 1px solid var(--border);
+    /* ── ARTICLE CARDS ──
+       Previews are real headless-Chrome screenshots of each post on the
+       Silverfort blog, stored locally so a redesign there cannot break them.
+       Cards are wide enough (~520px) that the headline in the shot is
+       actually readable, and each carries Yoad's avatar in the byline. */
+    .articles-grid {
+      margin-top: 3rem;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem;
     }
-    .article-row {
-      display: grid; grid-template-columns: 240px 1fr auto;
-      align-items: center; gap: 1.5rem;
-      padding: 1.1rem 1rem; border-bottom: 1px solid var(--border);
+    .article-card {
+      display: flex; flex-direction: column;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
       text-decoration: none; color: inherit;
-      transition: background .25s ease, padding-left .25s ease;
+      transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
     }
-    .article-row:hover { background: var(--bg-card); padding-left: 1.6rem; }
-    /* Real screenshots of each post as it appears on the Silverfort blog,
-       captured headless and stored locally so a redesign there cannot break
-       the previews here. object-position:top keeps the headline and byline
-       in frame. */
-    .article-thumb {
-      width: 240px; height: 135px; object-fit: cover; object-position: top;
-      display: block; border-radius: 8px; border: 1px solid var(--border-hover);
-      transition: border-color .25s ease, transform .3s ease, box-shadow .3s ease;
-      background: #fff;
+    .article-card:hover {
+      border-color: rgba(59,130,246,0.45); transform: translateY(-4px);
+      box-shadow: 0 18px 40px -18px rgba(0,0,0,0.85);
     }
-    .article-row:hover .article-thumb {
-      border-color: rgba(59,130,246,0.55); transform: scale(1.03);
-      box-shadow: 0 8px 24px -8px rgba(0,0,0,0.7);
+    .article-shot { display: block; position: relative; background: #fff; }
+    .article-shot img {
+      display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+      object-fit: cover; object-position: top;
+      border-bottom: 1px solid var(--border);
     }
-    .article-main { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
-    .article-title {
+    .article-badge {
+      position: absolute; top: 0.7rem; left: 0.7rem;
+      font-family: var(--font-mono); font-size: 0.6rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 0.3rem 0.6rem; border-radius: 100px;
+      background: rgba(9,9,11,0.82); color: var(--accent-bright);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(6px);
+    }
+    .article-body { display: flex; flex-direction: column; gap: 0.9rem; padding: 1.2rem 1.3rem 1.3rem; flex: 1; }
+    .article-h {
       font-size: 1.02rem; font-weight: 500; line-height: 1.45;
-      transition: color .25s ease;
+      transition: color .25s ease; overflow-wrap: break-word;
     }
-    .article-row:hover .article-title { color: var(--accent-bright); }
-    .article-byline {
-      font-family: var(--font-mono); font-size: 0.7rem;
-      color: var(--text-muted); letter-spacing: 0.03em;
+    .article-card:hover .article-h { color: var(--accent-bright); }
+    .article-by { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
+    .article-av {
+      width: 30px; height: 30px; border-radius: 50%; object-fit: cover;
+      border: 1px solid var(--border-hover); flex-shrink: 0;
     }
-    .article-byline i { font-style: normal; opacity: 0.5; margin: 0 0.15rem; }
+    .article-by span { display: flex; flex-direction: column; line-height: 1.35; min-width: 0; }
+    .article-by b { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+    .article-by i {
+      font-style: normal; font-family: var(--font-mono);
+      font-size: 0.66rem; color: var(--text-muted); letter-spacing: 0.03em;
+    }
     .article-tag {
       font-family: var(--font-mono); font-size: 0.65rem;
       text-transform: uppercase; letter-spacing: 0.08em;
@@ -1284,17 +1300,15 @@
     .articles-more:hover { border-color: var(--accent-bright); }
 
     @media (max-width: 700px) {
-      /* .articles and .wrap each carry 2rem of side padding, which left the
-         text column only ~112px wide and rows 400px tall. Drop the section's
-         padding on mobile and let .wrap alone handle the gutter. */
+      /* .articles and .wrap each apply 2rem of side padding; drop the
+         section's on mobile so cards get the full width */
       .articles { padding-left: 0; padding-right: 0; }
       .articles .wrap { padding: 0 1.1rem; }
-      .article-row { grid-template-columns: 132px 1fr; gap: 0.85rem; padding: 0.9rem 0.35rem; }
-      .article-row:hover { padding-left: 0.6rem; }
-      .article-thumb { width: 132px; height: 74px; border-radius: 6px; }
-      .article-title { font-size: 0.94rem; overflow-wrap: break-word; }
-      .article-tag { display: none; }   /* the byline already carries the context */
-      .articles-more { padding: 0.4rem 0; }   /* clears the 24px target minimum */
+      .articles-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .article-h { font-size: 0.96rem; }
+      .article-badge { font-size: 0.68rem !important; }
+      .article-by i { font-size: 0.7rem; }
+      .articles-more { padding: 0.4rem 0; }
       .pillars, .articles { padding-top: 4rem; }
     }
 
@@ -1643,59 +1657,89 @@
         </div>
       </div>
 
-      <div class="articles-list reveal">
-        <a href="https://www.silverfort.com/blog/the-identity-underground-community-shares-research-on-the-identity-security-consolidation-wave/" target="_blank" rel="noopener" class="article-row">
-          <img class="article-thumb" src="articles/idu-consolidation.jpg" alt="Article preview image: The Identity Underground community shares research on the Identity Security consolidation wave" width="760" height="428" loading="lazy" />
-          <span class="article-main">
-            <span class="article-title">The Identity Underground community shares research on the Identity Security consolidation wave</span>
-            <span class="article-byline">Yoad Dvir <i>&middot;</i> <time datetime="2026-01-20">Jan 20, 2026</time> <i>&middot;</i> Silverfort</span>
+      <div class="articles-grid reveal">
+        <a href="https://www.silverfort.com/blog/the-identity-underground-community-shares-research-on-the-identity-security-consolidation-wave/" target="_blank" rel="noopener" class="article-card">
+          <span class="article-shot">
+            <img src="articles/idu-consolidation.jpg" alt="Screenshot of the Silverfort blog post &#x27;&#x27;The Identity Underground&#x27; community shares research on the Identity Security consolidation wave&#x27;, written by Yoad Dvir" width="1040" height="585" loading="lazy" />
+            <span class="article-badge">Community Research</span>
           </span>
-          <span class="article-tag">Community Research</span>
+          <span class="article-body">
+            <span class="article-h">&#39;The Identity Underground&#39; community shares research on the Identity Security consolidation wave</span>
+            <span class="article-by">
+              <img src="photo.jpg" alt="" aria-hidden="true" class="article-av" width="48" height="48" loading="lazy" />
+              <span><b>Yoad Dvir</b><i>Jan 20, 2026 &middot; Silverfort</i></span>
+            </span>
+          </span>
         </a>
 
-        <a href="https://www.silverfort.com/blog/trick-or-scheme-a-conversation-with-ido-halevi-on-ai-agent-security/" target="_blank" rel="noopener" class="article-row">
-          <img class="article-thumb" src="articles/trick-or-scheme.jpg" alt="Article preview image: Trick or Scheme? A Conversation with Ido Halevi on AI Agent Security" width="760" height="428" loading="lazy" />
-          <span class="article-main">
-            <span class="article-title">Trick or Scheme? A Conversation with Ido Halevi on AI Agent Security</span>
-            <span class="article-byline">Yoad Dvir <i>&middot;</i> <time datetime="2025-10-30">Oct 30, 2025</time> <i>&middot;</i> Silverfort</span>
+        <a href="https://www.silverfort.com/blog/trick-or-scheme-a-conversation-with-ido-halevi-on-ai-agent-security/" target="_blank" rel="noopener" class="article-card">
+          <span class="article-shot">
+            <img src="articles/trick-or-scheme.jpg" alt="Screenshot of the Silverfort blog post &#x27;Trick or Scheme? A Conversation with Ido Halevi on AI Agent Security&#x27;, written by Yoad Dvir" width="1040" height="585" loading="lazy" />
+            <span class="article-badge">AI Agents</span>
           </span>
-          <span class="article-tag">AI Agents</span>
+          <span class="article-body">
+            <span class="article-h">Trick or Scheme? A Conversation with Ido Halevi on AI Agent Security</span>
+            <span class="article-by">
+              <img src="photo.jpg" alt="" aria-hidden="true" class="article-av" width="48" height="48" loading="lazy" />
+              <span><b>Yoad Dvir</b><i>Oct 30, 2025 &middot; Silverfort</i></span>
+            </span>
+          </span>
         </a>
 
-        <a href="https://www.silverfort.com/blog/its-the-identity-stupid-a-conversation-with-identity-security-expert-abbas-kudrati/" target="_blank" rel="noopener" class="article-row">
-          <img class="article-thumb" src="articles/its-the-identity.jpg" alt="Article preview image: &#x27;It&#x27;s the identity, stupid&#x27;: A conversation with identity security expert Abbas Kudrati" width="760" height="428" loading="lazy" />
-          <span class="article-main">
-            <span class="article-title">&quot;It&#39;s the identity, stupid&quot;: A conversation with identity security expert Abbas Kudrati</span>
-            <span class="article-byline">Yoad Dvir <i>&middot;</i> <time datetime="2025-03-27">Mar 27, 2025</time> <i>&middot;</i> Silverfort</span>
+        <a href="https://www.silverfort.com/blog/its-the-identity-stupid-a-conversation-with-identity-security-expert-abbas-kudrati/" target="_blank" rel="noopener" class="article-card">
+          <span class="article-shot">
+            <img src="articles/its-the-identity.jpg" alt="Screenshot of the Silverfort blog post &#x27;&#x27;It&#x27;s the identity, stupid&#x27;: A conversation with identity security expert Abbas Kudrati&#x27;, written by Yoad Dvir" width="1040" height="585" loading="lazy" />
+            <span class="article-badge">Interview</span>
           </span>
-          <span class="article-tag">Interview</span>
+          <span class="article-body">
+            <span class="article-h">&quot;It&#39;s the identity, stupid&quot;: A conversation with identity security expert Abbas Kudrati</span>
+            <span class="article-by">
+              <img src="photo.jpg" alt="" aria-hidden="true" class="article-av" width="48" height="48" loading="lazy" />
+              <span><b>Yoad Dvir</b><i>Mar 27, 2025 &middot; Silverfort</i></span>
+            </span>
+          </span>
         </a>
 
-        <a href="https://www.silverfort.com/blog/do-you-have-all-the-identity-security-signals-and-controls-to-make-ssf-caep-work/" target="_blank" rel="noopener" class="article-row">
-          <img class="article-thumb" src="articles/ssf-caep.jpg" alt="Article preview image: Do you have all the identity security signals and controls to make SSF/CAEP work?" width="760" height="428" loading="lazy" />
-          <span class="article-main">
-            <span class="article-title">Do you have all the identity security signals and controls to make SSF/CAEP work?</span>
-            <span class="article-byline">Yoad Dvir <i>&middot;</i> <time datetime="2024-11-19">Nov 19, 2024</time> <i>&middot;</i> Silverfort</span>
+        <a href="https://www.silverfort.com/blog/do-you-have-all-the-identity-security-signals-and-controls-to-make-ssf-caep-work/" target="_blank" rel="noopener" class="article-card">
+          <span class="article-shot">
+            <img src="articles/ssf-caep.jpg" alt="Screenshot of the Silverfort blog post &#x27;Do you have all the identity security signals and controls to make SSF/CAEP work?&#x27;, written by Yoad Dvir" width="1040" height="585" loading="lazy" />
+            <span class="article-badge">Standards</span>
           </span>
-          <span class="article-tag">Standards</span>
+          <span class="article-body">
+            <span class="article-h">Do you have all the identity security signals and controls to make SSF/CAEP work?</span>
+            <span class="article-by">
+              <img src="photo.jpg" alt="" aria-hidden="true" class="article-av" width="48" height="48" loading="lazy" />
+              <span><b>Yoad Dvir</b><i>Nov 19, 2024 &middot; Silverfort</i></span>
+            </span>
+          </span>
         </a>
 
-        <a href="https://www.silverfort.com/blog/introducing-silverforts-identity-first-incident-response-block-lateral-movement-detect-compromised-accounts-and-accelerate-recovery/" target="_blank" rel="noopener" class="article-row">
-          <img class="article-thumb" src="articles/identity-first-ir.jpg" alt="Article preview image: Introducing Silverfort&#x27;s Identity-First Incident Response: Block Lateral Movement, Detect Compromised Accounts and Accelerate Recovery" width="760" height="428" loading="lazy" />
-          <span class="article-main">
-            <span class="article-title">Introducing Silverfort&#39;s Identity-First Incident Response: Block Lateral Movement, Detect Compromised Accounts and Accelerate Recovery</span>
-            <span class="article-byline">Yoad Dvir <i>&middot;</i> <time datetime="2024-09-30">Sep 30, 2024</time> <i>&middot;</i> Silverfort</span>
+        <a href="https://www.silverfort.com/blog/introducing-silverforts-identity-first-incident-response-block-lateral-movement-detect-compromised-accounts-and-accelerate-recovery/" target="_blank" rel="noopener" class="article-card">
+          <span class="article-shot">
+            <img src="articles/identity-first-ir.jpg" alt="Screenshot of the Silverfort blog post &#x27;Introducing Silverfort&#x27;s Identity-First Incident Response&#x27;, written by Yoad Dvir" width="1040" height="585" loading="lazy" />
+            <span class="article-badge">Launch</span>
           </span>
-          <span class="article-tag">Launch</span>
+          <span class="article-body">
+            <span class="article-h">Introducing Silverfort&#39;s Identity-First Incident Response</span>
+            <span class="article-by">
+              <img src="photo.jpg" alt="" aria-hidden="true" class="article-av" width="48" height="48" loading="lazy" />
+              <span><b>Yoad Dvir</b><i>Sep 30, 2024 &middot; Silverfort</i></span>
+            </span>
+          </span>
         </a>
 
-        <a href="https://www.silverfort.com/blog/understanding-the-security-risks-of-ntlm/" target="_blank" rel="noopener" class="article-row">
-          <img class="article-thumb" src="articles/ntlm.jpg" alt="Article preview image: Understanding the Security Risks of NTLM" width="760" height="428" loading="lazy" />
-          <span class="article-main">
-            <span class="article-title">Understanding the Security Risks of NTLM</span>
-            <span class="article-byline">Yoad Dvir <i>&middot;</i> <time datetime="2024-08-15">Aug 15, 2024</time> <i>&middot;</i> Silverfort</span>
+        <a href="https://www.silverfort.com/blog/understanding-the-security-risks-of-ntlm/" target="_blank" rel="noopener" class="article-card">
+          <span class="article-shot">
+            <img src="articles/ntlm.jpg" alt="Screenshot of the Silverfort blog post &#x27;Understanding the Security Risks of NTLM&#x27;, written by Yoad Dvir" width="1040" height="585" loading="lazy" />
+            <span class="article-badge">Threat Research</span>
           </span>
-          <span class="article-tag">Threat Research</span>
+          <span class="article-body">
+            <span class="article-h">Understanding the Security Risks of NTLM</span>
+            <span class="article-by">
+              <img src="photo.jpg" alt="" aria-hidden="true" class="article-av" width="48" height="48" loading="lazy" />
+              <span><b>Yoad Dvir</b><i>Aug 15, 2024 &middot; Silverfort</i></span>
+            </span>
+          </span>
         </a>
       </div>
 
