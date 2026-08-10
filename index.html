@@ -100,7 +100,7 @@
         "name": "What does Yoad Dvir do?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yoad Dvir works across five connected roles: thought leader (shaping the narrative for AI agent identity security), evangelist (taking that story to stages, webinars and executive briefings), product marketing leader (positioning, messaging and launches for Silverfort's Unified Identity Protection platform), field CTO / CISO-facing advisor (translating between security practitioners and executive buyers), and go-to-market leader (competitive intelligence, analyst relations and sales enablement that drives pipeline)."
+          "text": "Yoad Dvir works across six connected roles: thought leader (shaping the narrative for AI agent identity security), evangelist (taking that story to stages, webinars and executive briefings), product marketing leader (positioning, messaging and launches for Silverfort's Unified Identity Protection platform), field CTO / CISO-facing advisor (translating between security practitioners and executive buyers), go-to-market leader (competitive intelligence, analyst relations and sales enablement that drives pipeline), and community builder (founder of The Identity Underground, a practitioner-first identity security community)."
         }
       },
       {
@@ -1043,6 +1043,8 @@
     .rd2 { transition-delay: 0.12s; }
     .rd3 { transition-delay: 0.18s; }
     .rd4 { transition-delay: 0.24s; }
+    .rd5 { transition-delay: 0.30s; }
+    .rd6 { transition-delay: 0.36s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
@@ -1194,8 +1196,9 @@
 
     /* ── PILLARS (what I bring) ── */
     .pillars { padding: 6rem 2rem 2rem; position: relative; z-index: 1; }
-    /* 5 pillars: a prime number, so any column count except 1 or 5 orphans
-       the last card. Explicit steps keep every row full. */
+    /* 6 pillars divide evenly into 1, 2 and 3 columns, so every row stays
+       full with no orphan handling (5 was prime and needed a last-child
+       span). 3 columns also gives each card ~352px instead of ~211px. */
     .pillars-grid {
       display: grid; grid-template-columns: 1fr;
       gap: 1px; background: var(--border);
@@ -1204,12 +1207,9 @@
     }
     @media (min-width: 620px) {
       .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-      .pillars-grid .pillar:last-child { grid-column: 1 / -1; }
     }
     @media (min-width: 1000px) {
-      .pillars-grid { grid-template-columns: repeat(5, 1fr); }
-      .pillars-grid .pillar:last-child { grid-column: auto; }
-      .pillar { padding: 2rem 1.25rem; }
+      .pillars-grid { grid-template-columns: repeat(3, 1fr); }
     }
     .pillar {
       background: var(--bg-card); padding: 2rem 1.6rem;
@@ -1509,7 +1509,7 @@
       <div class="section-top reveal">
         <div class="section-top-left">
           <p class="section-label">How I Work</p>
-          <h2 class="section-title">Five Hats, One Job</h2>
+          <h2 class="section-title">Six Hats, One Job</h2>
           <p class="section-desc">Different rooms need different versions of the same thing: making hard technology land with the people who have to act on it.</p>
         </div>
       </div>
@@ -1539,6 +1539,11 @@
           <span class="pillar-num">05</span>
           <h3 class="pillar-name">Go-To-Market</h3>
           <p class="pillar-desc">Competitive intelligence, analyst relations, and sales enablement that turns a narrative into pipeline. A story nobody can sell is just a nice story.</p>
+        </div>
+        <div class="pillar pillar--warm reveal rd6">
+          <span class="pillar-num">06</span>
+          <h3 class="pillar-name">Community Builder</h3>
+          <p class="pillar-desc">I founded the Identity Underground because analysts weren't fast enough and practitioners were already talking anyway. No pipeline agenda, which is why it's the room people actually show up to.</p>
         </div>
       </div>
     </div>
