@@ -176,7 +176,7 @@
     }
 
     .nav-tag {
-      font-family: var(--font-mono); font-size: 0.55rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       padding: 0.2rem 0.5rem; border-radius: 3px;
       background: var(--red-soft); color: var(--red);
       letter-spacing: 0.06em; text-transform: uppercase;
@@ -216,7 +216,7 @@
 
     .blog-header-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: var(--font-mono); font-size: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--green); background: var(--green-soft);
       padding: 0.3rem 0.7rem; border-radius: 20px;
@@ -283,13 +283,13 @@
     .post.visible { opacity: 1; transform: translateY(0); }
 
     .post-number {
-      font-family: var(--font-mono); font-size: 0.58rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--text-muted); margin-bottom: 0.8rem;
     }
 
     .post-tag {
-      font-family: var(--font-mono); font-size: 0.55rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.12em; text-transform: uppercase;
       padding: 0.2rem 0.55rem; border-radius: 3px;
       display: inline-block; margin-bottom: 1rem;
@@ -333,7 +333,7 @@
     }
 
     .post-callout-label {
-      font-family: var(--font-mono); font-size: 0.55rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--accent-bright); margin-bottom: 0.5rem;
     }
@@ -347,7 +347,7 @@
     }
 
     .post-sources-label {
-      font-family: var(--font-mono); font-size: 0.55rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--text-muted); margin-bottom: 0.5rem;
     }
@@ -361,12 +361,6 @@
     .post-sources a:hover { color: var(--text); }
 
     /* ── MY TAKE BADGE ── */
-    .my-take {
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      font-family: var(--font-mono); font-size: 0.55rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--warm); margin-bottom: 0.8rem;
-    }
 
     /* ── SILVERFORT ARTICLES ── */
     .sf-articles { padding: 3rem 0 1rem; position: relative; z-index: 1; }
@@ -409,7 +403,7 @@
     }
     .sf-badge {
       position: absolute; top: 0.7rem; left: 0.7rem;
-      font-family: var(--font-mono); font-size: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       text-transform: uppercase; letter-spacing: 0.08em;
       padding: 0.3rem 0.6rem; border-radius: 100px;
       background: rgba(9,9,11,0.82); color: var(--accent-bright);
@@ -432,7 +426,8 @@
     }
     .sf-more:hover { border-color: var(--accent-bright); }
     @media (max-width: 640px) {
-      .sf-articles .wrap { padding: 0 1.1rem; }
+      /* one gutter for every section, not just this one */
+      .wrap { padding: 0 1.25rem; }
       .sf-h { font-size: 0.94rem; }
       .sf-badge { font-size: 0.68rem !important; }
       .sf-by i { font-size: 0.7rem; }
@@ -475,13 +470,16 @@
     .cta-btn--ghost:hover { border-color: var(--text-secondary); color: var(--text); }
 
     /* ── FOOTER ── */
-    .footer {
-      padding: 2rem; border-top: 1px solid var(--border);
+    .footer { padding: 2rem; border-top: 1px solid var(--border); }
+    /* border stays full-bleed; content lines up with .wrap like every
+       other section, instead of sitting flush to the viewport edge */
+    .footer-inner {
+      max-width: calc(var(--max-w) - 4rem); margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
     }
 
     .footer-copy {
-      font-family: var(--font-mono); font-size: 0.58rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       color: var(--text-muted); letter-spacing: 0.08em;
     }
 
@@ -489,7 +487,7 @@
     .footer-links a { padding: 0.45rem 0; display: inline-block; }
 
     .footer-links a {
-      font-family: var(--font-mono); font-size: 0.58rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       color: var(--text-muted); text-decoration: none;
       letter-spacing: 0.06em; transition: color 0.2s;
     }
@@ -504,7 +502,7 @@
 
     @media (max-width: 480px) {
       .blog-cta-links { flex-direction: column; align-items: center; }
-      .footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -517,8 +515,11 @@
 
     /* ── MOBILE LEGIBILITY & TAP TARGETS ── */
     @media (max-width: 700px) {
+      /* must live after the base .footer rule: media queries add no
+         specificity, so source order decides */
+      .footer { padding-left: 1.25rem; padding-right: 1.25rem; }
       .post-tag, .post-number, .post-sources-label, .post-callout-label,
-      .sf-label, .sf-date, .footer-copy, .footer-links a,
+      .sf-label, .footer-copy, .footer-links a,
       .nav-tag, .cta-btn { font-size: 0.7rem !important; }
       .footer-links a { display: inline-block; padding: 0.4rem 0; }
       /* WCAG 2.2 target size: source links were only 20px tall */
@@ -834,11 +835,13 @@
   </section>
 
   <footer class="footer">
-    <span class="footer-copy">&copy; 2026 Yoad M. Dvir</span>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.silverfort.com" target="_blank" rel="noopener">Silverfort</a>
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Yoad M. Dvir</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.silverfort.com" target="_blank" rel="noopener">Silverfort</a>
+      </div>
     </div>
   </footer>
 

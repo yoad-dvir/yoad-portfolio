@@ -366,7 +366,7 @@
     }
 
     .nav-tag {
-      font-family: var(--font-mono); font-size: 0.58rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       padding: 0.25rem 0.6rem; border-radius: 3px;
       background: var(--accent-soft); color: var(--accent-bright);
       letter-spacing: 0.06em; text-transform: uppercase;
@@ -408,7 +408,7 @@
     .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
 
     .section-label {
-      font-family: var(--font-mono); font-size: 0.62rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--accent-bright); margin-bottom: 0.5rem;
     }
@@ -430,15 +430,6 @@
 
     .section-top-left { max-width: 600px; }
 
-    .view-all {
-      font-family: var(--font-mono); font-size: 0.7rem;
-      color: var(--accent-bright); text-decoration: none;
-      letter-spacing: 0.05em; transition: color 0.2s;
-      display: flex; align-items: center; gap: 0.3rem;
-      flex-shrink: 0;
-    }
-
-    .view-all:hover { color: var(--text); }
 
     /* ── HERO ── */
     .hero {
@@ -446,8 +437,12 @@
       position: relative; z-index: 1;
     }
 
+    /* .wrap caps its OUTER box at --max-w, so its content is --max-w minus
+       the 2rem gutters. .hero-inner caps its INNER box, which made the hero
+       32px wider and pushed its left edge out of line with every section
+       below it. Subtract the gutters so the two agree. */
     .hero-inner {
-      max-width: var(--max-w); margin: 0 auto;
+      max-width: calc(var(--max-w) - 4rem); margin: 0 auto;
       display: grid; grid-template-columns: 1fr 320px; gap: 4rem; align-items: center;
     }
 
@@ -501,7 +496,7 @@
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: var(--font-mono); font-size: 0.62rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--green); background: var(--green-soft);
       padding: 0.35rem 0.8rem; border-radius: 20px;
@@ -568,7 +563,7 @@
     .hero-stat-num--warm { color: var(--warm); }
 
     .hero-stat-label {
-      font-family: var(--font-mono); font-size: 0.58rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--text-muted); margin-top: 0.2rem;
     }
@@ -589,7 +584,7 @@
 
     .logos-label {
       text-align: center;
-      font-family: var(--font-mono); font-size: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--text-secondary); margin-bottom: 1.5rem;
     }
@@ -657,7 +652,7 @@
     .trend-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
 
     .trend-tag {
-      font-family: var(--font-mono); font-size: 0.55rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.15em; text-transform: uppercase;
       padding: 0.2rem 0.5rem; border-radius: 3px;
       display: inline-block; margin-bottom: 0.8rem;
@@ -706,12 +701,14 @@
       width: 100%; height: 200px; object-fit: cover;
       display: block; transition: transform 0.5s;
     }
+    /* page screenshots: keep the masthead/headline in frame when cropped */
+    .content-thumb--shot { object-position: top; background: #fff; }
 
     .content-card:hover .content-thumb { transform: scale(1.03); }
 
     .content-badge {
       position: absolute; top: 0.8rem; left: 0.8rem;
-      font-family: var(--font-mono); font-size: 0.55rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.12em; text-transform: uppercase;
       padding: 0.25rem 0.6rem; border-radius: 3px;
       backdrop-filter: blur(12px);
@@ -740,7 +737,7 @@
 
     .content-meta {
       margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem;
-      font-family: var(--font-mono); font-size: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       color: var(--text-muted); letter-spacing: 0.06em;
     }
 
@@ -762,7 +759,7 @@
     }
 
     .community-label {
-      font-family: var(--font-mono); font-size: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--warm); margin-bottom: 0.8rem;
     }
@@ -866,7 +863,7 @@
     }
 
     .topic-tag {
-      font-family: var(--font-mono); font-size: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.06em; padding: 0.35rem 0.7rem;
       border: 1px solid var(--border); color: var(--text-muted);
       border-radius: 3px;
@@ -943,7 +940,7 @@
     .career-chip:hover { border-color: var(--border-hover); }
 
     .career-chip-year {
-      font-family: var(--font-mono); font-size: 0.58rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       color: var(--accent-bright); letter-spacing: 0.08em;
     }
 
@@ -1000,13 +997,16 @@
     .c-btn svg { width: 14px; height: 14px; fill: currentColor; }
 
     /* ── FOOTER ── */
-    .footer {
-      padding: 2rem; border-top: 1px solid var(--border);
+    .footer { padding: 2rem; border-top: 1px solid var(--border); }
+    /* border stays full-bleed; content lines up with .wrap like every
+       other section, instead of sitting flush to the viewport edge */
+    .footer-inner {
+      max-width: calc(var(--max-w) - 4rem); margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
     }
 
     .footer-copy {
-      font-family: var(--font-mono); font-size: 0.58rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       color: var(--text-muted); letter-spacing: 0.08em;
     }
 
@@ -1014,7 +1014,7 @@
     .footer-links a { padding: 0.45rem 0; display: inline-block; }
 
     .footer-links a {
-      font-family: var(--font-mono); font-size: 0.58rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       color: var(--text-muted); text-decoration: none;
       letter-spacing: 0.06em; transition: color 0.2s;
     }
@@ -1070,7 +1070,15 @@
       .traits-grid { grid-template-columns: 1fr 1fr; }
       .logo-item { font-size: 0.9rem; padding: 0.5rem 1.5rem; }
       .logo-icon { width: 26px; height: 26px; font-size: 0.7rem; }
-      .footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    /* single gutter on small screens: .wrap drives it, and the two sections
+       that do not use .wrap (hero, carousel) are matched to it */
+    @media (max-width: 700px) {
+      .wrap { padding: 0 1.25rem; }
+      .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .footer { padding-left: 1.25rem; padding-right: 1.25rem; }
     }
 
     @media (max-width: 480px) {
@@ -1155,7 +1163,7 @@
     .carousel-dot.active { width: 44px; }
     .carousel-dot.active::before { background: var(--accent); }
     @media (max-width: 700px) {
-      .carousel { padding: 5.2rem 1.2rem 0; }
+      .carousel { padding: 5.2rem 1.25rem 0; }
       .carousel-frame { height: 300px; border-radius: 12px; }
       .carousel-cap { font-size: 0.82rem; padding: 2rem 1rem 1rem; }
       .carousel-btn { width: 44px; height: 44px; }
@@ -1195,7 +1203,7 @@
     }
 
     /* ── PILLARS (what I bring) ── */
-    .pillars { padding: 6rem 2rem 2rem; position: relative; z-index: 1; }
+    .pillars { padding: 6rem 0 2rem; position: relative; z-index: 1; }
     /* 6 pillars divide evenly into 1, 2 and 3 columns, so every row stays
        full with no orphan handling (5 was prime and needed a last-child
        span). 3 columns also gives each card ~352px instead of ~211px. */
@@ -1235,7 +1243,7 @@
     .pillar--green::after { background: var(--green); }
 
     /* ── ARTICLES ── */
-    .articles { padding: 6rem 2rem 2rem; position: relative; z-index: 1; }
+    .articles { padding: 6rem 0 2rem; position: relative; z-index: 1; }
     /* ── ARTICLE CARDS ──
        Previews are real headless-Chrome screenshots of each post on the
        Silverfort blog, stored locally so a redesign there cannot break them.
@@ -1264,7 +1272,7 @@
     }
     .article-badge {
       position: absolute; top: 0.7rem; left: 0.7rem;
-      font-family: var(--font-mono); font-size: 0.6rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
       text-transform: uppercase; letter-spacing: 0.08em;
       padding: 0.3rem 0.6rem; border-radius: 100px;
       background: rgba(9,9,11,0.82); color: var(--accent-bright);
@@ -1288,12 +1296,6 @@
       font-style: normal; font-family: var(--font-mono);
       font-size: 0.66rem; color: var(--text-muted); letter-spacing: 0.03em;
     }
-    .article-tag {
-      font-family: var(--font-mono); font-size: 0.65rem;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-muted); border: 1px solid var(--border);
-      padding: 0.28rem 0.6rem; border-radius: 100px; white-space: nowrap;
-    }
     .articles-more {
       padding: 0.35rem 0;
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -1304,10 +1306,6 @@
     .articles-more:hover { border-color: var(--accent-bright); }
 
     @media (max-width: 700px) {
-      /* .articles and .wrap each apply 2rem of side padding; drop the
-         section's on mobile so cards get the full width */
-      .articles { padding-left: 0; padding-right: 0; }
-      .articles .wrap { padding: 0 1.1rem; }
       .articles-grid { grid-template-columns: 1fr; gap: 1.2rem; }
       .article-h { font-size: 0.96rem; }
       .article-badge { font-size: 0.68rem !important; }
@@ -1334,9 +1332,8 @@
       .trend-tag, .content-badge { font-size: 0.68rem !important; }
       .nav-tag, .hero-stat-label, .career-chip-year,
       .logos-label, .content-meta, .community-label, .topic-tag,
-      .section-label, .article-tag, .pillar-num,
+      .section-label, .pillar-num,
       .footer-copy, .footer-links a { font-size: 0.7rem !important; }
-      .article-date { font-size: 0.72rem; }
       .hero-roles li { font-size: 0.72rem; }
       .career-chip-sep { font-size: 0.72rem; }
 
@@ -1441,6 +1438,7 @@
           <li>Product Marketing Leader</li>
           <li>Field CTO / CISO</li>
           <li>Go-To-Market Strategist</li>
+          <li>Community Builder</li>
         </ul>
         <div class="hero-stats">
           <div>
@@ -1606,7 +1604,7 @@
 
         <a href="https://the-identity-underground.webflow.io/annual-pulse-2026" target="_blank" rel="noopener" class="content-card reveal rd2">
           <div class="content-thumb-wrap">
-            <img src="thumb-report.jpg" alt="IDU Annual Pulse 2026" class="content-thumb" loading="lazy" />
+            <img src="featured/idu-pulse.jpg" alt="The Identity Underground Annual Pulse 2026 report page" class="content-thumb content-thumb--shot" width="1036" height="400" loading="lazy" />
             <span class="content-badge content-badge--report">Report</span>
           </div>
           <div class="content-body">
@@ -1630,13 +1628,25 @@
 
         <a href="https://the-identity-underground.webflow.io/" target="_blank" rel="noopener" class="content-card reveal rd4">
           <div class="content-thumb-wrap">
-            <img src="thumb-report.jpg" alt="The Identity Underground Wisdom Report" class="content-thumb" loading="lazy" />
+            <img src="featured/idu-home.jpg" alt="The Identity Underground community site" class="content-thumb content-thumb--shot" width="1036" height="400" loading="lazy" />
             <span class="content-badge content-badge--report">Quarterly</span>
           </div>
           <div class="content-body">
             <h3 class="content-title">The IDU Wisdom Report</h3>
             <p class="content-desc">Every quarter I turn closed-door executive and practitioner sessions into a report the community actually reads. Editor and producer.</p>
             <div class="content-meta">Identity Underground &middot; Explore &rarr;</div>
+          </div>
+        </a>
+
+        <a href="blog.html" class="content-card reveal rd6">
+          <div class="content-thumb-wrap">
+            <img src="featured/own-blog.jpg" alt="AI Agent Security Futures, Yoad's own commentary blog" class="content-thumb content-thumb--shot" width="1036" height="400" loading="lazy" />
+            <span class="content-badge content-badge--blog">Commentary</span>
+          </div>
+          <div class="content-body">
+            <h3 class="content-title">AI Agent Security Futures</h3>
+            <p class="content-desc">My own writing, not a vendor's. Five arguments about where agentic AI and identity are heading, with the research behind each one.</p>
+            <div class="content-meta">This site &middot; Read the commentary &rarr;</div>
           </div>
         </a>
 
@@ -1995,12 +2005,14 @@
   </section>
 
   <footer class="footer">
-    <span class="footer-copy">&copy; 2026 Yoad M. Dvir (<span lang="he" dir="rtl">יועד דביר</span>)</span>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.silverfort.com/author/yoad/" target="_blank" rel="noopener">Articles</a>
-      <a href="https://the-identity-underground.webflow.io/" target="_blank" rel="noopener">Identity Underground</a>
-      <a href="https://www.silverfort.com" target="_blank" rel="noopener">Silverfort</a>
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Yoad M. Dvir (<span lang="he" dir="rtl">יועד דביר</span>)</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/yoaddvir/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.silverfort.com/author/yoad/" target="_blank" rel="noopener">Articles</a>
+        <a href="https://the-identity-underground.webflow.io/" target="_blank" rel="noopener">Identity Underground</a>
+        <a href="https://www.silverfort.com" target="_blank" rel="noopener">Silverfort</a>
+      </div>
     </div>
   </footer>
 
